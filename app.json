@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/orderTaking/index",
+    "pages/orderTaking/search",
+    "pages/orderTaking/searchResult",
+    "pages/release/index",
+    "pages/release/writeInformation",
+    "pages/login/index",
+    "pages/login/phoneLogin",
+    "pages/login/verificationCode",
+    "pages/myPage/index",
+    "pages/myPage/myMsg"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "派找零工",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "borderStyle": "white",
+    "color": "#777777",
+    "selectedColor": "#F85B2D",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/icon/icon_home.png",
+        "selectedIconPath": "img/icon/icon_home_on.png" 
+      },
+      {
+        "pagePath": "pages/orderTaking/index",
+        "text": "接单",
+        "iconPath": "img/icon/icon_order.png",
+        "selectedIconPath": "img/icon/icon_order_on.png"
+      },
+      {
+        "pagePath": "pages/release/index",
+        "text": "发布",
+        "iconPath": "img/icon/icon_issue.png",
+        "selectedIconPath": "img/icon/icon_issue_on.png"
+      },
+      {
+        "pagePath": "pages/myPage/index",
+        "text": "我的",
+        "iconPath": "img/icon/icon_person.png",
+        "selectedIconPath": "img/icon/icon_person_on.png"
+      }
+    ]
+  }
+}

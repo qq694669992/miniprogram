@@ -1,0 +1,56 @@
+page {
+  background: #FAFAFA;
+}
+.my-msg-content {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 21rpx;
+  background: #FFFFFF;
+  padding: 0 30rpx;
+}
+.my-msg-list {
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #F6F6F6;
+}
+.my-msg_list {
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.no-line {
+  border-bottom: 0;
+}
+.my-msg-list-title {
+  font-size: 28rpx;
+  color: #333333;
+}
+.null {
+  flex: 1;
+}
+.my-msg-list-content {
+  font-size: 28rpx;
+  color: #333333;
+}
+.my-msg-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.my-msg_icon {
+  width: 100%;
+  height: 100%;
+}
+.my-msg-btn {
+  width: 100%;
+  height: 88rpx;
+  margin-top: 40rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333333;
+  background: #FFFFFF;
+}

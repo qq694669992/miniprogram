@@ -1,0 +1,36 @@
+.login-icon {
+  width: 750rpx;
+  height: 459rpx;
+}
+.login-img {
+  width: 100%;
+  height: 100%;
+}
+.wx-btn {
+  width: 630rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background: #00BF00;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  line-height: 88rpx;
+}
+.wx-icon {
+  width: 45rpx;
+  height: 36rpx;
+  vertical-align: text-bottom;
+}
+.phone-btn {
+  width: 630rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  color: #666666;
+  line-height: 88rpx;
+  border: 2rpx solid #D4D4D4;
+  background: #ffffff;
+  margin-top: 59rpx;
+}
+.phone-btn::after {
+  border: none;
+}

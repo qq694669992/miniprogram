@@ -1,0 +1,52 @@
+<view class="my-msg-page">
+  <view class="my-msg-content">
+    <view class="my-msg-list my-msg_list">
+      <view class="my-msg-list-title">
+        <text>个人头像</text>
+      </view>
+      <view class="null"></view>
+      <view class="my-msg-list-content my-msg-icon">
+        <image src="../../img/mingrentang.png" class="my-msg_icon" />
+      </view>
+    </view>
+    <view class="my-msg-list">
+      <view class="my-msg-list-title">
+        <text>姓名</text>
+      </view>
+      <view class="null"></view>
+      <view class="my-msg-list-content">
+        <text>追风少年</text>
+      </view>
+    </view>
+    <view class="my-msg-list">
+      <view class="my-msg-list-title">
+        <text>性别</text>
+      </view>
+      <view class="null"></view>
+      <view class="my-msg-list-content">
+        <text>追风少年</text>
+      </view>
+    </view>
+    <view class="my-msg-list">
+      <view class="my-msg-list-title">
+        <text>出生年月</text>
+      </view>
+      <view class="null"></view>
+      <view class="my-msg-list-content">
+        <text>1990-01-03</text>
+      </view>
+    </view>
+    <view class="my-msg-list no-line">
+      <view class="my-msg-list-title">
+        <text>手机号码</text>
+      </view>
+      <view class="null"></view>
+      <view class="my-msg-list-content">
+        <text>13800138000</text>
+      </view>
+    </view>
+  </view>
+  <view class="my-msg-btn" bindtap="logOut">
+    <text>退出登录</text>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<view class="search-page">
+  <view class="search-view">
+    <view class="search-input-view">
+      <image src="../../img/orderTaking/search.png" class="search-icon" />
+      <input placeholder="请输入搜索关键词" class="search-input" />
+    </view>
+    <view class="search-btn" bindtap="toSearchResult">
+      <text>搜索</text>
+    </view>
+  </view>
+  <view class="search-record-view">
+    <view class="search-history">
+      <view class="search-history-head">
+        <text class="search-history-title">搜索历史</text>
+        <text class="search-clear-btn">清除记录</text>
+      </view>
+      <view class="search-history-content">
+        <view class="search-history-text" wx:for="{{searchHistory}}" wx:key="index">
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="hot-search">
+      <view>
+        <text class="search-history-title">热门搜索</text>
+      </view>
+      <view class="hot-search-content">
+        <view class="hot-search-text" wx:for="{{hotSearch}}" wx:key="index">
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

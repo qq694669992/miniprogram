@@ -1,0 +1,12 @@
+<view class="login-page">
+  <view class="login-icon">
+    <image src="../../img/login/loginbg.png" class="login-img"></image>
+  </view>
+  <button class="wx-btn">
+    <image src="../../img/login/weixin.png" class="wx-icon"></image>
+    微信登陆
+  </button>
+  <button class="phone-btn" bindtap="toPhoneLogin">
+    使用手机号码登陆
+  </button>
+</view>

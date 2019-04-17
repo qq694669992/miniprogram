@@ -1,0 +1,155 @@
+page {
+  background: #FAFAFA;
+}
+.my-page-top {
+  width: 750rpx;
+  height: 322rpx;
+  position: relative;
+}
+.my-page-bg {
+  width: 100%;
+  height: 100%;
+}
+.my-page-msg {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 80rpx;
+  left: 30rpx;
+}
+.my-page-msg-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background: black;
+}
+.my-page-msg_icon {
+  width: 100%;
+  height: 100%;
+}
+.my-page_msg {
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+}
+.my-page-msg-name {
+  font-size: 34rpx;
+  color: #FFFFFF;
+}
+.renzheng-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.renzheng-text {
+  font-size: 26rpx;
+  color: #FFFFFF;
+}
+.my-account {
+  width: 690rpx;
+  height: 382rpx;
+  border-radius: 20rpx;
+  position: relative;
+  top: -80rpx;
+  margin: 0 auto;
+}
+.my-account-bg {
+  width: 100%;
+  height: 100%;
+}
+.my-account-msg {
+  width: 470rpx;
+  height: 242rpx;
+  position: absolute;
+  top: 70rpx;
+  left: 110rpx;
+  text-align: center;
+}
+.my-account-msg-title {
+  font-size: 28rpx;
+  color: #999999;
+}
+.my-account-price {
+  font-size: 80rpx;
+  color: #F7622E;
+}
+.my-account-operation {
+  margin-top:50rpx;
+  display: flex;
+  flex-direction: row;
+}
+.recharge {
+  width: 235rpx;
+  height: 46rpx;
+  border-right: 2rpx solid #EBEBEB;
+  text-align: left;
+}
+.recharge-icon {
+  width: 44rpx;
+  height: 34rpx;
+  margin-right: 16rpx;
+  vertical-align: middle;
+}
+.recharge-text {
+  font-size: 30rpx;
+  color: #333333;
+}
+.withdraw-cash {
+  width: 235rpx;
+  height: 46rpx;
+  text-align: right;
+}
+.withdraw-cash-icon {
+  width: 44rpx;
+  height: 34rpx;
+  margin-right: 16rpx;
+  vertical-align: middle;
+}
+.withdraw-cash-text {
+  font-size: 30rpx;
+  color: #333333;
+}
+.my-page-list {
+  background: #ffffff;
+  padding: 0 30rpx;
+  margin-top: -40rpx;
+}
+.my-page-list-item {
+  width: 100%;
+  height: 88rpx;
+  border-bottom: 1rpx solid #F6F6F6;
+  display: flex;
+  flex-direction: row;
+  line-height: 88rpx;
+}
+.my-page-list-item-last {
+  border-bottom: 0;
+}
+.my-page-list-item-title-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 17rpx;
+  vertical-align: middle;
+}
+.my-page-list-item-title-text {
+  font-size: 28rpx;
+  color: #333333;
+}
+.null {
+  flex: 1;
+}
+.my-page-list-item_icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+.my-page-btn {
+  width: 100%;
+  height: 88rpx;
+  background: #FFFFFF;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333333;
+  line-height: 88rpx;
+  margin: 40rpx 0 100rpx 0;
+}

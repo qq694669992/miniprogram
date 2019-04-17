@@ -1,0 +1,117 @@
+<view class="index-page">
+  <view class="banner">
+    <view class="banner-title">
+      <text class="banner-text">觅食派</text>
+      <text class="null"></text>
+      <text class="banner-btn">更多></text>
+    </view>
+    <view class="banner_view">
+      <swiper indicator-dots="{{true}}"
+              autoplay="{{true}}"
+              interval="2000"
+              circular
+              class="banner-view"
+      >
+        <block wx:for="{{imgUrls}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item}}" class="banner-img"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <view class="index-content">
+    <view class="content-title">
+      <text class="banner-text">派派战绩</text>
+      <text class="null"></text>
+      <text class="banner-btn">更多></text>
+    </view>
+    <view class="floor-view">
+      <view class="bg-view">
+        <image src="../../img/bg.png"></image>
+      </view>
+      <view class="goods-view">
+        <view class="goods-img-view">
+          <image src="{{imageUrl}}" class="goods-img"></image>
+        </view>
+        <view class="goods-content">
+          <view class="goods-msg">
+            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
+            <text class="goods-price">399.00</text>
+          </view>
+          <view class="goods-msg">
+            <view>
+              <image src="../../img/mingrentang.png" class="people-icon"></image>
+              <text class="people-see">296</text>
+            </view>
+            <view class="null"></view>
+            <view class="goods-address">
+              <image src="../../img/dizhi.png" class="address-icon"></image>  
+              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
+              <text decode="{{true}}">|</text>
+              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="floor-view">
+      <view class="bg-view">
+        <image src="../../img/bg.png"></image>
+      </view>
+      <view class="goods-view">
+        <view class="goods-img-view">
+          <image src="{{imageUrl}}" class="goods-img"></image>
+        </view>
+        <view class="goods-content">
+          <view class="goods-msg">
+            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
+            <text class="goods-price">399.00</text>
+          </view>
+          <view class="goods-msg">
+            <view>
+              <image src="../../img/mingrentang.png" class="people-icon"></image>
+              <text class="people-see">296</text>
+            </view>
+            <view class="null"></view>
+            <view class="goods-address">
+              <image src="../../img/dizhi.png" class="address-icon"></image>  
+              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
+              <text decode="{{true}}">|</text>
+              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="floor-view">
+      <view class="bg-view">
+        <image src="../../img/bg.png"></image>
+      </view>
+      <view class="goods-view">
+        <view class="goods-img-view">
+          <image src="{{imageUrl}}" class="goods-img"></image>
+        </view>
+        <view class="goods-content">
+          <view class="goods-msg">
+            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
+            <text class="goods-price">399.00</text>
+          </view>
+          <view class="goods-msg">
+            <view>
+              <image src="../../img/mingrentang.png" class="people-icon"></image>
+              <text class="people-see">296</text>
+            </view>
+            <view class="null"></view>
+            <view class="goods-address">
+              <image src="../../img/dizhi.png" class="address-icon"></image>  
+              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
+              <text decode="{{true}}">|</text>
+              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

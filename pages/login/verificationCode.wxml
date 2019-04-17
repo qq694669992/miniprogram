@@ -1,0 +1,28 @@
+<view class="verification-code-page">
+  <view>
+    <text class="verification-code-big-title">输入验证码</text>
+  </view>
+  <view>
+    <text class="verification-code-small-title">验证码已发送至{{phoneNum}}</text>
+  </view>
+  <form bindsubmit="toLogin">
+    <view class="verification-code-content">
+      <input 
+        type='number' wx:for="{{inputLen}}" wx:key="{{index}}" 
+        disabled bindtap='onFocus'
+        value="{{iptValue.length>=index+1?iptValue[index]:''}}"
+        class="code-input"
+        focus="{{ture}}"
+        />
+      <input 
+        name="password" type="number" password="{{true}}" 
+        class='hidden_ipt' maxlength="{{inputLen}}" 
+        focus="{{isFocus}}" bindinput="setValue"
+        ></input>
+    </view>
+    <button bindtap="sendCode" disabled="{{disabledSend}}" class="send-btn" plain style="border: 0 none; color: {{disabledSend ? '#999999' : '#F7622E'}}; background: #ffffff">{{text}}</button>
+    <view class="submit-view">
+      <button form-type="submit" class="login-btn" disabled="{{disabled}}" style="color: #ffffff; {{disabled ? 'background: #D4D4D4' : 'background: #FF6700'}}">登录</button>
+    </view>
+  </form>
+</view>

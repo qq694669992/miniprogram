@@ -1,0 +1,21 @@
+<view class="phone-login-page">
+  <view>
+    <text class="phone-login-big-title">输入您的手机号码</text>
+  </view>
+  <view>
+    <text class="phone-login-small-title">为了方便与您联系，请输入您常用的手机号码</text>
+  </view>
+  <form bindsubmit="toNext">
+    <view class="phone-login-content">
+      <view class="phone-login-content-left">
+        <text>+86</text>
+      </view>
+      <view class="phone-login-content-input">
+        <input type="number" placeholder="手机号" class="phone-input" maxlength="11" name="phone" bindinput="keyInput"></input>
+      </view>
+    </view>
+    <view class="submit-view">
+      <button form-type="submit" class="next-btn" disabled="{{disabled}}" style="color: #ffffff; {{disabled ? 'background: #D4D4D4' : 'background: #FF6700'}}">下一步</button>
+    </view>
+  </form>
+</view>

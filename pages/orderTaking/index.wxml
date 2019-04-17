@@ -1,0 +1,134 @@
+<view class="order-taking">
+  <view class="search-view">
+    <view class="search-input" bindtap="toSearch">
+      <image src="../../img/orderTaking/search.png" class="search-icon"/>
+      <text class="search-text">请输入搜索关键词</text>
+    </view>
+    <view class="search-btn" bindtap="toSearch">
+      <text>搜索</text>
+    </view>
+  </view>
+  <view class="search-chosen">
+    <view class="chosen-view" bindtap="chosenView" id="all">
+      <view class="chosen-text {{activeIndex === '0' ? 'active-text' : ''}}">
+        <text>综合排序</text>
+      </view>
+      <view class="active-line" wx:if="{{activeIndex === '0'}}"></view>
+    </view>
+    <view class="chosen-view" bindtap="chosenView" id="near">
+      <view class="chosen-text {{activeIndex === '1' ? 'active-text' : ''}}">
+        <text>离我最近</text>
+      </view>
+      <view class="active-line" wx:if="{{activeIndex === '1'}}"></view>
+    </view>
+    <view class="chosen-view" bindtap="chosenView" id="praise">
+      <view class="chosen-text {{activeIndex === '2' ? 'active-text' : ''}}">
+        <text>好评多</text>
+      </view>
+      <view class="active-line" wx:if="{{activeIndex === '2'}}"></view>
+    </view>
+  </view>
+  <view class="search-content">
+    <view class="floor-view">
+      <view class="bg-view">
+        <image src="../../img/bg.png"></image>
+      </view>
+      <view class="goods-view">
+        <view class="goods-img-view">
+          <image src="{{imageUrl}}" class="goods-img"></image>
+        </view>
+        <view class="goods-content">
+          <view class="goods-msg">
+            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
+            <text class="goods-price">399.00</text>
+          </view>
+          <view class="goods-msg">
+            <view>
+              <image src="../../img/mingrentang.png" class="people-icon"></image>
+              <text class="people-see">296</text>
+            </view>
+            <view class="goods-address">
+              <image src="../../img/dizhi.png" class="address-icon"></image>  
+              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
+              <text decode="{{true}}">|</text>
+              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
+            </view>
+            <view class="null"></view>
+            <view class="order-taking-view">
+              <image src='../../img/orderTaking/order-taking-btn.png' class="btn-image"/>
+              <text class="btn-text">立即接单</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="floor-view">
+      <view class="bg-view">
+        <image src="../../img/bg.png"></image>
+      </view>
+      <view class="goods-view">
+        <view class="goods-img-view">
+          <image src="{{imageUrl}}" class="goods-img"></image>
+        </view>
+        <view class="goods-content">
+          <view class="goods-msg">
+            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
+            <text class="goods-price">399.00</text>
+          </view>
+          <view class="goods-msg">
+            <view>
+              <image src="../../img/mingrentang.png" class="people-icon"></image>
+              <text class="people-see">296</text>
+            </view>
+            <view class="goods-address">
+              <image src="../../img/dizhi.png" class="address-icon"></image>  
+              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
+              <text decode="{{true}}">|</text>
+              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
+            </view>
+            <view class="null"></view>
+            <view class="order-taking-view">
+              <image src='../../img/orderTaking/order-taking-btn.png' class="btn-image"/>
+              <text class="btn-text">立即接单</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="floor-view">
+      <view class="bg-view">
+        <image src="../../img/bg.png"></image>
+      </view>
+      <view class="goods-view">
+        <view class="goods-img-view">
+          <image src="{{imageUrl}}" class="goods-img"></image>
+        </view>
+        <view class="goods-content">
+          <view class="goods-msg">
+            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
+            <text class="goods-price">399.00</text>
+          </view>
+          <view class="goods-msg">
+            <view>
+              <image src="../../img/mingrentang.png" class="people-icon"></image>
+              <text class="people-see">296</text>
+            </view>
+            <view class="goods-address">
+              <image src="../../img/dizhi.png" class="address-icon"></image>  
+              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
+              <text decode="{{true}}">|</text>
+              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
+            </view>
+            <view class="null"></view>
+            <view class="order-taking-view">
+              <image src='../../img/orderTaking/order-taking-btn.png' class="btn-image"/>
+              <text class="btn-text">立即接单</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

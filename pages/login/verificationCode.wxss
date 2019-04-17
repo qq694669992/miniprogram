@@ -1,0 +1,64 @@
+.verification-code-page {
+  padding: 150rpx 60rpx 0 60rpx;
+}
+.verification-code-big-title {
+  font-size: 40rpx;
+  color: #000000;
+  font-weight: bolder;
+}
+.verification-code-small-title {
+  font-size: 28rpx;
+  color: #999999;
+}
+.verification-code-content {
+  display: flex;
+  flex-direction: space-around;
+  margin-top: 90rpx;
+  padding-bottom: 30rpx;
+}
+.code-input {
+  border-bottom: 2px solid #EEEEEE;
+  margin-right: 49rpx;
+  text-align: center;
+  display: inline-block;
+}
+.code-input:nth-child(4) {
+  margin-right: 0;
+}
+.hidden_ipt {
+  height: 0rpx;
+  width:0rpx;
+  border:none;
+  margin:0;
+}
+.send-code {
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 15rpx;
+}
+.send-btn {
+  font-size: 28rpx;
+  text-align: left;
+}
+.send-btn::after {
+  border: 0 none;
+}
+.submit-view {
+  margin-top: 100rpx;
+}
+.login-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  border: none;
+  font-size: 32rpx;
+}
+.login-btn::after {
+  border: none;
+}
+.col-gray {
+  background: #D4D4D4;
+}
+.col-orange {
+  background: #FF6700;
+}

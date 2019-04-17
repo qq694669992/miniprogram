@@ -1,0 +1,50 @@
+.phone-login-page {
+  padding: 150rpx 60rpx 0 60rpx;
+}
+.phone-login-big-title {
+  font-size: 40rpx;
+  color: #000000;
+  font-weight: bolder;
+}
+.phone-login-small-title {
+  font-size: 28rpx;
+  color: #999999;
+}
+.phone-login-content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 90rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid #EEEEEE;
+}
+.phone-login-content-left {
+  width: 160rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-size: 34rpx;
+  color: #000000;
+  font-weight: bolder;
+}
+.phone-login-content-input {
+  flex: 1;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.phone-input {
+  width: 100%;
+  /* height: 30rpx; */
+  font-size: 34rpx;
+}
+.submit-view {
+  margin-top: 100rpx;
+}
+.next-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  border: none;
+  font-size: 32rpx;
+}
+.next-btn::after {
+  border: none;
+}
