@@ -1,0 +1,41 @@
+.evaluate {
+  padding-top: 40rpx;
+}
+.evaluate-tips {
+  text-align: center;
+  font-size: 32rpx;
+  color: #F98D44;
+}
+.evaluate-icon {
+  text-align: center;
+  margin-top: 40rpx;
+}
+.evaluate-icon image{
+  width: 74rpx;
+  height: 74rpx;
+}
+.unhappy-icon {
+  margin-left: 30rpx;
+}
+.evaluate-msg {
+  width: 600rpx;
+  height: 250rpx;
+  border-radius: 15rpx;
+  margin: 20rpx auto 60rpx auto;
+  background: #F2F2F2;
+  overflow: hidden;
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.sumbit {
+  width: 630rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #FF6700;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  margin: 0 auto;
+  border-radius: 44rpx;
+}

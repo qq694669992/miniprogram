@@ -41,16 +41,17 @@
 .content-title {
   display: flex;
   flex: row;
+  padding: 0 15rpx;
 }
 .floor-view {
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   position: relative;
   border-radius: 20rpx;
   overflow: hidden;
 }
 .bg-view {
   width: 690rpx;
-  height: 452rpx;
+  height: 482rpx;
   position: relative;
   top: 0;
   left: 0;
@@ -60,8 +61,8 @@
   height: 100%;
 }
 .goods-view {
-  width: 660rpx;
-  height: 432rpx;
+  width: 670rpx;
+  height: 452rpx;
   border-radius: 20rpx;
   overflow: hidden;
   position: absolute;
@@ -69,8 +70,9 @@
   left: 15rpx;
 }
 .goods-img-view {
-  width: 100%;
+  width: 98%;
   height: 300rpx;
+  margin: 5rpx;
 }
 .goods-img {
   width: 100%;
@@ -78,11 +80,11 @@
 }
 .goods-content {
   padding: 10rpx 30rpx 0 30rpx;
-  background: #fefefe;
 }
 .goods-msg {
   display: flex;
   flex-direction: row;
+  margin-top: 10rpx;
 }
 .goods-name {
   font-size: 30rpx;

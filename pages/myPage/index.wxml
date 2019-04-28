@@ -2,15 +2,21 @@
   <view class="my-page-top">
     <image src="../../img/mypage/kz_wdbg.png" class="my-page-bg"/>
     <view class="my-page-msg">
-      <view class="my-page-msg-icon" bindtap="toMyMsg">
-        <image src="../../img/mingrentang.png" class="my-page-msg_icon"/>
+      <view class="my-page-msg-icon">
+        <image src="{{msgList.headImage}}" class="my-page-msg_icon"/>
       </view>
-      <view class="my-page_msg">
-        <text class="my-page-msg-name">天天向上好好学习</text>
-        <view>
+      <view class="my-page_msg" wx:if="{{userId !== ''}}">
+        <text class="my-page-msg-name">{{msgList.account}}</text>
+        <view wx:if="{{msgList.isverified === 0}}">
+          <text class="renzheng-text">未认证</text>
+        </view>
+        <view wx:else>
           <image src="../../img/mypage/renzheng.png" class="renzheng-icon" />
           <text class="renzheng-text">已认证</text>
         </view>
+      </view>
+      <view class="my-page_msg-nologin" wx:else>
+        <text class="my-page-msg-name">请先登陆</text>
       </view>
     </view>
   </view>
@@ -21,7 +27,8 @@
         <text>账户余额(元)</text>
       </view>
       <view class="my-account-price">
-        <text>2000.00</text>
+        <text wx:if="{{userId !== ''}}">{{msgList.accountBalance}}</text>
+        <text wx:else>0.00</text>
       </view>
       <view class="my-account-operation">
         <view class="recharge">
@@ -36,7 +43,7 @@
     </view>
   </view>
   <view class="my-page-list">
-    <view class="my-page-list-item">
+    <view class="my-page-list-item" data-url="myRelease" bindtap="toPage">
       <view class="my-page-list-item-title">
         <image src="../../img/mypage/list_1.png" class="my-page-list-item-title-icon" />
         <text class="my-page-list-item-title-text">我的发布</text>
@@ -46,7 +53,7 @@
         <image src="../../img/mypage/ic_arrow.png" class="my-page-list-item_icon"/>
       </view>
     </view>
-    <view class="my-page-list-item">
+    <view class="my-page-list-item" data-url="myOrder" bindtap="toPage">
       <view class="my-page-list-item-title">
         <image src="../../img/mypage/list_2.png" class="my-page-list-item-title-icon" />
         <text class="my-page-list-item-title-text">我的订单</text>
@@ -56,7 +63,7 @@
         <image src="../../img/mypage/ic_arrow.png" class="my-page-list-item_icon"/>
       </view>
     </view>
-    <view class="my-page-list-item">
+    <view class="my-page-list-item" data-url="myAuthentication" bindtap="toPage">
       <view class="my-page-list-item-title">
         <image src="../../img/mypage/list_3.png" class="my-page-list-item-title-icon" />
         <text class="my-page-list-item-title-text">我的认证</text>
@@ -66,7 +73,7 @@
         <image src="../../img/mypage/ic_arrow.png" class="my-page-list-item_icon"/>
       </view>
     </view>
-    <view class="my-page-list-item">
+    <view class="my-page-list-item" data-url="myMsg" bindtap="toPage">
       <view class="my-page-list-item-title">
         <image src="../../img/mypage/list_4.png" class="my-page-list-item-title-icon" />
         <text class="my-page-list-item-title-text">个人信息</text>
@@ -76,7 +83,7 @@
         <image src="../../img/mypage/ic_arrow.png" class="my-page-list-item_icon"/>
       </view>
     </view>
-    <view class="my-page-list-item my-page-list-item-last">
+    <view class="my-page-list-item my-page-list-item-last" data-url="userAgreement" bindtap="toPage">
       <view class="my-page-list-item-title">
         <image src="../../img/mypage/list_5.png" class="my-page-list-item-title-icon" />
         <text class="my-page-list-item-title-text">用户协议</text>
@@ -87,7 +94,10 @@
       </view>
     </view>
   </view>
-  <view class="my-page-btn" bindtap="logOut">
+  <view class="my-page-btn" bindtap="logOut" wx:if="{{userId !== ''}}">
     <text>退出登录</text>
+  </view>
+  <view class="my-page-btn" bindtap="login" wx:else>
+    <text>登录</text>
   </view>
 </view>

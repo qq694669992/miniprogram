@@ -624,4 +624,28 @@ Page({
       endDate: endDate
     })
   },
+  release:function (e) {
+    console.log(e.detail)
+    let that = this
+    let query = {
+      title: that.data.title,
+      jobNumber: '',
+      totalPrice: '',
+      userId: '',
+      coordinate: '',
+      address: '',
+      tags: '',
+      requirement: '',
+      jobDescription: that.data.work,
+      startTime: '',
+      endTime: '',
+      account: '',
+      phone: '',
+      headImage: '',
+      images: '',
+      city: '',
+      area: ''
+    }
+    console.log(query)
+  }
 })

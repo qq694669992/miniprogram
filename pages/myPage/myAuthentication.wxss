@@ -1,0 +1,44 @@
+.my-authentication-page {
+  text-align: center;
+}
+.authentication-title {
+  font-size: 28rpx;
+  color: #F98D44;
+  margin-top: 44rpx;
+}
+.authentication-tips {
+  font-size: 26rpx;
+  color: #999999;
+  margin: 17rpx 0 19rpx 0;
+}
+.id-card-view {
+  width: 510rpx;
+  height: 328rpx;
+  margin: 0 auto;
+}
+.id-card {
+  width: 510rpx;
+  height: 328rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.image-view {
+  width: 510rpx;
+  height: 328rpx;
+}
+.authentication-msg {
+  font-size: 28rpx;
+  color: #333333;
+  margin: 29rpx 0 47rpx 0;
+}
+.save-view {
+  width: 630rpx;
+  height: 88rpx;
+  margin: 32rpx auto 91rpx auto;
+  background: #FF6700;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 44rpx;
+  line-height: 88rpx;
+}

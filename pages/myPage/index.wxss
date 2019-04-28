@@ -32,6 +32,10 @@ page {
   margin-top: 10rpx;
   margin-left: 30rpx;
 }
+.my-page_msg-nologin {
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+}
 .my-page-msg-name {
   font-size: 34rpx;
   color: #FFFFFF;

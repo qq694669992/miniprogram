@@ -1,0 +1,13 @@
+<view class="evaluate">
+  <view class="evaluate-tips">
+    <text>“满意”</text>
+  </view>
+  <view class="evaluate-icon">
+    <image src="../../img/icon/icon_happy_on.png" />
+    <image src="../../img/icon/icon_unhappy_on.png" class="unhappy-icon"/>
+  </view>
+  <view class="evaluate-msg">
+    <textarea placeholder="请输入评价文字（可不填）" />
+  </view>
+  <view class="sumbit">提交</view>
+</view>

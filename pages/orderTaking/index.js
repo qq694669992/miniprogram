@@ -1,7 +1,11 @@
 Page({
   data: {
     activeIndex: '0',
+    list: [],
     imageUrl: 'http://img1.imgtn.bdimg.com/it/u=2735633715,2749454924&fm=26&gp=0.jpg'
+  },
+  onShow: function() {
+    this.getList()
   },
   toSearch: function () {
     wx.navigateTo({
@@ -23,5 +27,33 @@ Page({
         activeIndex: '2'
       })
     }
+  },
+  getList: function() {
+    let that = this
+    let params = {
+      compSorting: 'NO',
+      distanceSorting: 'NO',
+      evaluateSorting: 'NO',
+    }
+    wx.request({
+      url: 'https://www.paizhao66.net/server/pages/getReceipts',
+      data: {
+        ...params
+      },
+      method: 'GET',
+      success: function(res) {
+        let data = res.data
+        if (data.code === 'S0A00000') {
+          that.setData({
+            list: data.receipts
+          })
+        }
+      }
+    })
+  },
+  toReleaseDetails: function() {
+    wx.navigateTo({
+      url: 'releaseDetails',
+    })
   }
 })

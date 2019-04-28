@@ -10,7 +10,13 @@
     "pages/login/phoneLogin",
     "pages/login/verificationCode",
     "pages/myPage/index",
-    "pages/myPage/myMsg"
+    "pages/myPage/myMsg",
+    "pages/myPage/myAuthentication",
+    "pages/myPage/myOrder",
+    "pages/myPage/myRelease",
+    "pages/myPage/evaluate",
+    "pages/myPage/userAgreement",
+    "pages/orderTaking/releaseDetails"
   ],
   "window":{
     "backgroundTextStyle":"light",

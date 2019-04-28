@@ -1,108 +1,110 @@
 <view class="write-information-page">
-  <view class="release-title">
-    <input class="input-title" placeholder="请输入招聘零工标题" value="{{title}}" />
-  </view>
-  <view class="release-work">
-    <textarea class="input-work" placeholder="请详细填写零工工作内容" value="{{work}}" />
-  </view>
-  <view class="release-label">
-    <view class="label-title">
-      <text>标签</text>
+  <form bindsubmit="release">
+    <view class="release-title">
+      <input class="input-title" name="title" placeholder="请输入招聘零工标题" />
     </view>
-    <view class="label-content">
-      <view class="label-list" wx:for="{{labelArray}}" wx:key="index" >
-        <text>{{item.name}}</text>
+    <view class="release-work">
+      <textarea class="input-work" name="work" placeholder="请详细填写零工工作内容" value="{{work}}" />
+    </view>
+    <view class="release-label">
+      <view class="label-title">
+        <text>标签</text>
       </view>
-    </view>
-  </view>
-  <view class="release-photo">
-    <view class="photo-title">
-      <text>图片</text>
-    </view>
-    <view class="photo-content">
-      <view wx:for="{{images}}" wx:key="index" class="upload-view">
-        <image src="{{item}}" class="upload-image"/>
-      </view>
-      <view class="photo-add" bindtap="bindChooiceProduct">
-        <image src="../../img/release/fb_add.png" class="add-icon" />
-      </view>
-    </view>
-  </view>
-  <view class="release-list">
-    <view class="release-list-title">
-      <text>开始时间</text>
-    </view>
-    <view class="null"></view>
-    <view class="release-list-choosen">
-      <!-- <picker
-        mode="date"
-        value="{{startDate}}"
-        bindchange="bindStartDateChange"
-      >
-        <view class="picker">
-          <text class="choosen-text" wx:if="{{startDate === ''}}">请选择</text>
-          <text class="choosen-text" wx:if="{{startDate !== ''}}">{{startDate}}</text>
-          <image src="../../img/release/ic_arrow.png" class="choosen-icon"/>
+      <view class="label-content">
+        <view class="label-list" wx:for="{{labelArray}}" wx:key="index" >
+          <text>{{item.name}}</text>
         </view>
-      </picker> -->
-      <picker class='time-picker' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <text class="choosen-text">{{startDate}}</text>
-        <image src="../../img/release/ic_arrow.png" class="choosen-icon" />
-      </picker>
+      </view>
     </view>
-  </view>
-  <view class="release-list">
-    <view class="release-list-title">
-      <text>结束时间</text>
-    </view>
-    <view class="null"></view>
-    <view class="release-list-choosen">
-      <!-- <picker
-        mode="date"
-        value="{{endDate}}"
-        bindchange="bindEndDateChange"
-      >
-        <view class="picker">
-          <text class="choosen-text" wx:if="{{endDate === ''}}">请选择</text>
-          <text class="choosen-text" wx:if="{{endDate !== ''}}">{{endDate}}</text>
-          <image src="../../img/release/ic_arrow.png" class="choosen-icon"/>
+    <view class="release-photo">
+      <view class="photo-title">
+        <text>图片</text>
+      </view>
+      <view class="photo-content">
+        <view wx:for="{{images}}" wx:key="index" class="upload-view">
+          <image src="{{item}}" class="upload-image"/>
         </view>
-      </picker> -->
-      <picker class='time-picker' mode="multiSelector" bindchange="bindEndMultiPickerChange" bindtap='pickerEndTap' bindcolumnchange="bindMultiEndPickerColumnChange" value="{{multiEndIndex}}" range="{{multiEndArray}}" disabled="{{isDisabled}}">
-        <text class="choosen-text">{{endDate}}</text>
-        <image src="../../img/release/ic_arrow.png" class="choosen-icon" />
-      </picker>
+        <view class="photo-add" bindtap="bindChooiceProduct">
+          <image src="../../img/release/fb_add.png" class="add-icon" />
+        </view>
+      </view>
     </view>
-  </view>
-  <view class="release-address">
-    <view class="release_list">
+    <view class="release-list">
       <view class="release-list-title">
-        <text>所在地区</text>
+        <text>开始时间</text>
       </view>
       <view class="null"></view>
       <view class="release-list-choosen">
-        <picker
-          mode="region"
-          value="{{region}}"
-          bindchange="bindRegionChange"
+        <!-- <picker
+          mode="date"
+          value="{{startDate}}"
+          bindchange="bindStartDateChange"
         >
           <view class="picker">
-            <text class="choosen-text" wx:if="{{region.length === 0}}">请选择</text>
-            <text class="choosen-text" wx:if="{{region.length !== 0}}">{{region[0]}}-{{region[1]}}-{{region[2]}}</text>
+            <text class="choosen-text" wx:if="{{startDate === ''}}">请选择</text>
+            <text class="choosen-text" wx:if="{{startDate !== ''}}">{{startDate}}</text>
             <image src="../../img/release/ic_arrow.png" class="choosen-icon"/>
           </view>
+        </picker> -->
+        <picker class='time-picker' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <text class="choosen-text">{{startDate}}</text>
+          <image src="../../img/release/ic_arrow.png" class="choosen-icon" />
         </picker>
       </view>
     </view>
-    <view class="release-address-details">
-      <textarea class="input-address-details" placeholder="请详细填写详细地址" value="{{addressDeatils}}"/>
+    <view class="release-list">
+      <view class="release-list-title">
+        <text>结束时间</text>
+      </view>
+      <view class="null"></view>
+      <view class="release-list-choosen">
+        <!-- <picker
+          mode="date"
+          value="{{endDate}}"
+          bindchange="bindEndDateChange"
+        >
+          <view class="picker">
+            <text class="choosen-text" wx:if="{{endDate === ''}}">请选择</text>
+            <text class="choosen-text" wx:if="{{endDate !== ''}}">{{endDate}}</text>
+            <image src="../../img/release/ic_arrow.png" class="choosen-icon"/>
+          </view>
+        </picker> -->
+        <picker class='time-picker' mode="multiSelector" bindchange="bindEndMultiPickerChange" bindtap='pickerEndTap' bindcolumnchange="bindMultiEndPickerColumnChange" value="{{multiEndIndex}}" range="{{multiEndArray}}" disabled="{{isDisabled}}">
+          <text class="choosen-text">{{endDate}}</text>
+          <image src="../../img/release/ic_arrow.png" class="choosen-icon" />
+        </picker>
+      </view>
     </view>
-  </view>
-  <view class="release-agreement">
-    <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" />
-    <text class="agreement-content">我已阅读并同意《零工协议》</text>
-  </view>
-  <view class="release-btn">
-    <text>发布</text>
-  </view>
+    <view class="release-address">
+      <view class="release_list">
+        <view class="release-list-title">
+          <text>所在地区</text>
+        </view>
+        <view class="null"></view>
+        <view class="release-list-choosen">
+          <picker
+            mode="region"
+            value="{{region}}"
+            bindchange="bindRegionChange"
+          >
+            <view class="picker">
+              <text class="choosen-text" wx:if="{{region.length === 0}}">请选择</text>
+              <text class="choosen-text" wx:if="{{region.length !== 0}}">{{region[0]}}-{{region[1]}}-{{region[2]}}</text>
+              <image src="../../img/release/ic_arrow.png" class="choosen-icon"/>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="release-address-details">
+        <textarea class="input-address-details" placeholder="请详细填写详细地址" value="{{addressDeatils}}"/>
+      </view>
+    </view>
+    <view class="release-agreement">
+      <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" />
+      <text class="agreement-content">我已阅读并同意《零工协议》</text>
+    </view>
+    <view>
+      <button form-type="submit" class="release-btn">发布</button>
+    </view>
+  </form>
 </view>

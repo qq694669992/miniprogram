@@ -6,7 +6,7 @@
       </view>
       <view class="null"></view>
       <view class="my-msg-list-content my-msg-icon">
-        <image src="../../img/mingrentang.png" class="my-msg_icon" />
+        <image src="{{userList.headImage}}" class="my-msg_icon" />
       </view>
     </view>
     <view class="my-msg-list">
@@ -15,7 +15,16 @@
       </view>
       <view class="null"></view>
       <view class="my-msg-list-content">
-        <text>追风少年</text>
+        <text>{{userList.relName}}</text>
+      </view>
+    </view>
+    <view class="my-msg-list">
+      <view class="my-msg-list-title">
+        <text>昵称</text>
+      </view>
+      <view class="null"></view>
+      <view class="my-msg-list-content">
+        <text>{{userList.account}}</text>
       </view>
     </view>
     <view class="my-msg-list">
@@ -24,7 +33,7 @@
       </view>
       <view class="null"></view>
       <view class="my-msg-list-content">
-        <text>追风少年</text>
+        <text>{{userList.sex}}</text>
       </view>
     </view>
     <view class="my-msg-list">
@@ -42,11 +51,8 @@
       </view>
       <view class="null"></view>
       <view class="my-msg-list-content">
-        <text>13800138000</text>
+        <text>{{userList.phone}}</text>
       </view>
     </view>
-  </view>
-  <view class="my-msg-btn" bindtap="logOut">
-    <text>退出登录</text>
   </view>
 </view>

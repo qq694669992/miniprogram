@@ -4,24 +4,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userId: '',
-    userList: {},
+    labelArray: [
+      {
+        name: '擦窗'
+      },
+      {
+        name: '洗空调'
+      },
+      {
+        name: '洗空调'
+      },
+      {
+        name: '清洗抽油烟机'
+      },
+      {
+        name: '零工'
+      },
+      {
+        name: '临时工'
+      },
+      {
+        name: '洗冰箱'
+      },
+      {
+        name: '清洗办公室'
+      }
+    ],
+    isAgree: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
-    wx.getStorage({
-      key: 'userId',
-      success(res) {
-        that.setData({
-          userId: res.data
-        })
-        that.getUserInfo()
-      },
-    })
+    
   },
 
   /**
@@ -72,28 +88,10 @@ Page({
   onShareAppMessage: function () {
     
   },
-  getUserInfo: function () {
-    let that = this
-    wx.request({
-      url: 'https://www.paizhao66.net/server/usercenter/getUserInfo',
-      data: {
-        "id": that.data.userId
-      },
-      method: 'GET',
-      success: function(res) {
-        console.log(res)
-        let data = res.data
-        if (data.code === 'S0A00000') {
-          that.setData({
-            userList: data.user
-          })
-        }
-      }
+  switchChange(e) {
+    this.setData({
+      isAgree: e.detail.value
     })
+    console.log(this.data.isAgree)
   },
-  logOut: function () {
-    wx.navigateTo({
-      url: '../login/index',
-    })
-  }
 })

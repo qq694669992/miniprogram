@@ -1,0 +1,33 @@
+<view class="my-authentication-page">
+  <view class="authentication-title">
+    <text>请上传身份证照片</text>
+  </view>
+  <view class="authentication-tips">
+    <text>要求：请保证照片和关键信息清晰可见</text>
+  </view>
+  <view class="id-card-view">
+    <view class="id-card" bindtap="bindChooiceId" wx:if="{{idZ !== ''}}" data-cardId="idZ">
+      <image src="{{idZ}}" class="image-view"/>
+    </view>
+    <view class="id-card" bindtap="bindChooiceId" wx:else data-cardId="idZ">
+      <image src="../../img/myPage/id_z.png" class="image-view" />
+    </view>
+  </view>
+  <view class="authentication-msg">
+    <text>身份证正面照</text>
+  </view>
+  <view class="id-card-view">
+    <view class="id-card" bindtap="bindChooiceId" wx:if="{{idF !== ''}}" data-cardId="idF">
+      <image src="{{idF}}" class="image-view"/>
+    </view>
+    <view class="id-card" bindtap="bindChooiceId" wx:else data-cardId="idF">
+      <image src="../../img/myPage/id_f.png" class="image-view" />
+    </view>
+  </view>
+  <view class="authentication-msg">
+    <text>身份证反面照</text>
+  </view>
+  <view class="save-view" bindtap="authentication">
+    <text>保存</text>
+  </view>
+</view>

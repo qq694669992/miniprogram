@@ -58,5 +58,32 @@ Page({
       disabledSend: true
     })
     that.countDown()
+  },
+  toLogin (e) {
+    wx.request({
+      url: 'https://www.paizhao66.net/server/user/logincode',
+      data: {
+        mobile: '13411921644',
+        vcode: '6666'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' 
+      },
+      method: 'POST',
+      success(res) {
+        console.log(res.data)
+        let data = res.data
+        if (data.code === 'S0A00000') {
+          wx.setStorage({
+            key: 'userId',
+            data: data.userId,
+          })
+          wx.switchTab({
+            url: '/pages/myPage/index'
+          })
+        } else {
+        }
+      }
+    })
   }
 })
