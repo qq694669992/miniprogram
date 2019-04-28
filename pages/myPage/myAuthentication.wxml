@@ -10,7 +10,7 @@
       <image src="{{idZ}}" class="image-view"/>
     </view>
     <view class="id-card" bindtap="bindChooiceId" wx:else data-cardId="idZ">
-      <image src="../../img/myPage/id_z.png" class="image-view" />
+      <image src="../../img/mypage/id_z.png" class="image-view" />
     </view>
   </view>
   <view class="authentication-msg">
@@ -21,7 +21,7 @@
       <image src="{{idF}}" class="image-view"/>
     </view>
     <view class="id-card" bindtap="bindChooiceId" wx:else data-cardId="idF">
-      <image src="../../img/myPage/id_f.png" class="image-view" />
+      <image src="../../img/mypage/id_f.png" class="image-view" />
     </view>
   </view>
   <view class="authentication-msg">
