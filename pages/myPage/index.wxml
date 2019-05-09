@@ -31,11 +31,11 @@
         <text wx:else>0.00</text>
       </view>
       <view class="my-account-operation">
-        <view class="recharge">
+        <view class="recharge" data-url='recharge' bindtap="toPage">
           <image src="../../img/mypage/kz_cz.png" class="recharge-icon" />
           <text class="recharge-text">充值</text>
         </view>
-        <view class="withdraw-cash">
+        <view class="withdraw-cash" data-url='cashout' bindtap="toPage">
           <image src="../../img/mypage/kz_tx.png" class="withdraw-cash-icon" />
           <text class="withdraw-cash-text">提现</text>
         </view>

@@ -1,0 +1,125 @@
+page {
+  background: #FAFAFA;
+}
+.my-msg-page{
+  margin-top: 100rpx;
+}
+.my-msg-content {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 21rpx;
+  background: #FFFFFF;
+  padding: 0 30rpx;
+}
+.l-text{
+  margin-right: 25px;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.my-msg-list {
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #F6F6F6;
+}
+.my-msg_list {
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.input-title {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx 0 30rpx;
+  background: #ffffff;
+  font-size: 32rpx;
+}
+.no-line {
+  border-bottom: 0;
+}
+.my-msg-list-title {
+  font-size: 28rpx;
+  color: #333333;
+}
+.null {
+  flex: 1;
+}
+.wxpay-null{
+  flex: 1;
+  margin-left: 50rpx;
+}
+.my-msg-list-content {
+  font-size: 28rpx;
+  color: #333333;
+}
+.my-msg-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.my-msg_icon {
+  width: 100%;
+  height: 100%;
+}
+.my-msg-btn {
+  width: 100%;
+  height: 88rpx;
+  margin-top: 40rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333333;
+  background: #FFFFFF;
+}
+.wxpay-icon{
+  width: 50rpx;
+  height: 50rpx;
+  padding: 18rpx 22rpx;
+}
+.pay-channels{
+  background: #FFFFFF;
+  margin-top: 30px;
+}
+.ckbox{
+  margin-right:15rpx
+}
+
+.release-agreement {
+  margin: 30rpx;
+  margin-top: 100rpx;
+}
+.wx-switch-input{
+  width: 20rpx !important;
+  height: 20rpx !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.wx-switch-input::before{
+  width: 20rpx !important;
+  height: 20rpx !important;
+  background: #FAFAFA !important;
+}
+.wx-switch-input::after{
+  width: 20rpx !important;
+  height: 20rpx !important;
+  background: #FF6700 !important;
+}
+.agreement-content {
+  font-size: 26rpx;
+  color: #999999;
+  margin-left: 10rpx;
+}
+.release-btn {
+  width: 630rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background: #FF6700;
+  margin: 80rpx auto 120rpx auto;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  line-height: 88rpx;
+  text-align: center;
+}

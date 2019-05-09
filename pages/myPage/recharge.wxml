@@ -1,0 +1,47 @@
+<view class="my-msg-page">
+  <form>
+    <view class="my-msg-content">
+        <view class="my-msg-list">
+          <view class="my-msg-list-title">
+            <text>账户余额</text>
+          </view>
+          <view class="null"></view>
+          <view class="my-msg-list-content">
+            <text class='l-text'>550.00元</text>
+          </view>
+        </view>
+        <view class="my-msg-list">
+          <view class="my-msg-list-title">
+            <text>充值金额</text>
+          </view>
+          <view class="null"></view>
+          <view class="my-msg-list-content">
+            <input class='input-title' name="amount" placeholder="请输入您要充值的金额" />
+          </view>
+        </view>
+      </view>
+    
+      <view class='pay-channels'>
+            <view class="my-msg-list">
+              <view class="my-msg-list-title">
+                <image src="../../img/icon/wx_pay.jpg" class='wxpay-icon' />
+              </view>
+              <view class="wxpay-null">
+                <text>微信支付</text>
+              </view>
+              <view class="my-msg-list-content">
+                <switch checked='true' class='ckbox' disabled='true' type="checkbox" style="zoom: 0.7" />
+              </view>
+            </view>
+      </view>
+
+      <view class="release-agreement">
+        <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" />
+        <text class="agreement-content">我已阅读并同意《支付协议》</text>
+      </view>
+      <view>
+        <button form-type="submit" class="release-btn">充值</button>
+      </view>
+
+  </form>   
+</view>

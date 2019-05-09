@@ -28,6 +28,6 @@
     <text>身份证反面照</text>
   </view>
   <view class="save-view" bindtap="authentication">
-    <text>保存</text>
+    <text>提交</text>
   </view>
 </view>

@@ -1,0 +1,74 @@
+<view class="my-msg-page">
+  <form>
+    <view class="my-msg-content">
+        <view class="my-msg-list">
+          <view class="my-msg-list-title">
+            <text>账户余额</text>
+          </view>
+          <view class="null"></view>
+          <view class="my-msg-list-content">
+            <text class='l-text'>550.00元</text>
+          </view>
+        </view> 
+    </view>
+
+    <view class='payment'>
+        <view class="my-msg-content">
+            <view class="my-msg-list">
+              <view class="my-msg-list-title">
+                <text>提现方式</text>
+              </view>
+              <view class="null"></view>
+            </view> 
+        </view>
+
+        <view class='pay-channels'>
+              <view class="my-msg-list">
+                <view class="my-msg-list-title">
+                  <image src="../../img/icon/wx_pay.jpg" class='wxpay-icon' />
+                </view>
+                <view class="wxpay-null">
+                  <text>微信支付</text>
+                </view>
+                <view class="my-msg-list-content">
+                  <switch checked='true' class='ckbox' disabled='true' type="checkbox" style="zoom: 0.7" />
+                </view>
+              </view>
+        </view>
+
+        <view>
+
+        </view>
+
+    </view>
+
+    <view class='cashout-info my-msg-content'>
+      <view class="my-msg-list">
+          <view class="my-msg-list-title">
+            <text>姓名</text>
+          </view>
+          <view class="null"></view>
+          <view class="my-msg-list-content">
+            <input class='input-title' name="amount" placeholder="请输入准确填写姓名" />
+          </view>
+      </view>
+
+      <view class="my-msg-list">
+          <view class="my-msg-list-title">
+            <text>银行卡</text>
+          </view>
+          <view class="null"></view>
+          <view class="my-msg-list-content">
+            <input class='input-title' name="amount" placeholder="请准确填写银行卡" />
+          </view>
+      </view>
+
+    </view>
+    
+      
+    <view>
+      <button form-type="submit" class="release-btn">提现</button>
+    </view>
+
+  </form>   
+</view>
