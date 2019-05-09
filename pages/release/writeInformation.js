@@ -699,7 +699,7 @@ Page({
         account: '2222222222',                      //  用户名
         phone: '11111111111',                       //  手机号码
         headImage: '222222',                        //  用户头像
-        images: that.data.images,                   //  图片
+        images: "22525",                   //  图片
         city: that.data.region[0],                  //  城市
         area: that.data.region[1]                   //  区域
       }
@@ -710,7 +710,7 @@ Page({
           ...query
         },
         header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json;charset=utf-8'
         },
         success(res) {
           console.log(res)
