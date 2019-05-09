@@ -6,13 +6,17 @@
     <view class="release-work">
       <textarea class="input-work" name="work" placeholder="请详细填写零工工作内容" value="{{work}}" />
     </view>
+    <view class="release-price">
+      <text>总金额</text>
+      <input class="input-price" name="price" placeholder="金额" />
+    </view>
     <view class="release-label">
       <view class="label-title">
         <text>标签</text>
       </view>
       <view class="label-content">
-        <view class="label-list" wx:for="{{labelArray}}" wx:key="index" >
-          <text>{{item.name}}</text>
+        <view class="label-list {{item.isChosen ? 'label-chosen' : ''}}" wx:for="{{labelArray}}" wx:key="index" bindtap="chosenLabel" data-index="{{index}}">
+          <text>{{item.tagName}}</text>
         </view>
       </view>
     </view>
@@ -96,7 +100,7 @@
         </view>
       </view>
       <view class="release-address-details">
-        <textarea class="input-address-details" placeholder="请详细填写详细地址" value="{{addressDeatils}}"/>
+        <textarea class="input-address-details" placeholder="请详细填写详细地址" name="address"/>
       </view>
     </view>
     <view class="release-agreement">

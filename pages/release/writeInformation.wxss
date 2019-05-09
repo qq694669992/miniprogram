@@ -28,6 +28,21 @@ page {
   background: #ffffff;
   font-size: 28rpx;
 }
+.release-price {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  height: 88rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+.input-price {
+  margin-left: 20rpx;
+}
 .release-label {
   box-sizing: border-box;
   background: #ffffff;
@@ -53,6 +68,10 @@ page {
   font-size: 28rpx;
   color: #666666;
   margin: 0 20rpx 20rpx 0;
+}
+.label-chosen {
+  border: 1rpx solid #FF6700;
+  color: #FF6700;
 }
 .release-photo {
   padding: 30rpx;

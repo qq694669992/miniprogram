@@ -8,34 +8,7 @@ Page({
    */
   data: {
     formUrl: '',
-    title: '',
-    work: '',
-    labelArray: [
-      {
-      name: '擦窗'
-      },
-      {
-        name: '洗空调'
-      },
-      {
-        name: '洗空调'
-      },
-      {
-        name: '清洗抽油烟机'
-      },
-      {
-        name: '零工'
-      },
-      {
-        name: '临时工'
-      },
-      {
-        name: '洗冰箱'
-      },
-      {
-        name: '清洗办公室'
-      }
-    ],
+    labelArray: [],
     images: [],
     // startDate: '',
     // endDate: '',
@@ -53,6 +26,10 @@ Page({
     endDate: "请选择日期",
     multiEndArray: [[],[],[]],
     multiEndIndex: [0, 0, 0],
+    endMonth: '',
+    endDay: '',
+    endHours: '',
+    endMinute: '',
   },
 
   /**
@@ -62,6 +39,7 @@ Page({
     this.setData({
       formUrl: options.formUrl
     })
+    this.getLabel()
   },
 
   /**
@@ -123,6 +101,33 @@ Page({
   onShareAppMessage: function () {
     
   },
+  // 获取标签
+  getLabel: function() {
+    let that = this
+    wx.request({
+      url: 'https://www.paizhao66.net/server/tags/getTags',
+      method: 'GET',
+      success(res) {
+        let data = res.data
+        if (data.code === 'S0A00000') {
+          that.setData({
+            labelArray: data.tags
+          })
+        }
+      }
+    })
+  },
+
+  // 标签选择
+  chosenLabel(e) {
+    let that = this
+    let index = e.currentTarget.dataset.index
+    let isChosen = `labelArray[${index}].isChosen`
+    that.setData({
+      [isChosen]: !that.data.labelArray[index].isChosen
+    })
+  },
+
   // 图片上传
   bindChooiceProduct: function() {
     let that = this
@@ -384,7 +389,7 @@ Page({
     //   monthDay = month + "月" + day + "日";
     // }
 
-    var startDate = monthDay + " " + hours + minute;
+    var startDate = monthDay + hours + minute;
     that.setData({
       startDate: startDate,
       startMonth: monthDay.substring(0, monthDay.indexOf('月')),
@@ -428,7 +433,6 @@ Page({
     console.log("data:" + JSON.stringify(data))
     // console.log(data.multiEndArray[0])
     if (data.multiEndArray[0] === 0) {
-      console.log(11111)
       if (data.multiEndIndex[1] === 0) {
         this.loadEndData(hours, minute);
       } else {
@@ -619,33 +623,99 @@ Page({
     //   monthDay = month + "月" + day + "日";
     // }
 
-    var endDate = monthDay + " " + hours + minute;
+    var endDate = monthDay + hours + minute;
     that.setData({
-      endDate: endDate
+      endDate: endDate,
+      endMonth: monthDay.substring(0, monthDay.indexOf('月')),
+      endDay: monthDay.substring(monthDay.indexOf('月') + 1, monthDay.indexOf('日')),
+      endHours: hours.substr(0, hours.indexOf('时')),
+      endMinute: minute.substr(0, minute.indexOf('分')),
     })
   },
   release:function (e) {
-    console.log(e.detail)
     let that = this
-    let query = {
-      title: that.data.title,
-      jobNumber: '',
-      totalPrice: '',
-      userId: '',
-      coordinate: '',
-      address: '',
-      tags: '',
-      requirement: '',
-      jobDescription: that.data.work,
-      startTime: '',
-      endTime: '',
-      account: '',
-      phone: '',
-      headImage: '',
-      images: '',
-      city: '',
-      area: ''
+    let tags = ''
+    for (let i in that.data.labelArray) {
+      if (that.data.labelArray[i].isChosen) {
+        tags += that.data.labelArray[i].tagName + ','
+      }
     }
-    console.log(query)
+    console.log('startMonth', that.data.startMonth)
+    console.log('startDay', that.data.startDay)
+    console.log('startHours', that.data.startHours)
+    console.log('startMinute', that.data.startMinute)
+    let startTime = '2019-' + (that.data.startMonth < 10 ? '0' + that.data.startMonth : that.data.startMonth) + '-' + (that.data.startDay < 10 ? '0' + that.data.startDay : that.data.startDay) + ' ' + (that.data.startHours < 10 ? '0' + that.data.startHours : that.data.startHours) + ':' + (that.data.startMinute < 10 ? '0' + that.data.startMinute : that.data.startMinute) + ':00'
+    let endTime = '2019-' + (that.data.endMonth < 10 ? '0' + that.data.endMonth : that.data.endMonth) + '-' + (that.data.endDay < 10 ? '0' + that.data.endDay : that.data.endDay) + ' ' + (that.data.endHours < 10 ? '0' + that.data.endHours : that.data.endHours) + ':' + (that.data.endMinute < 10 ? '0' + that.data.endMinute : that.data.endMinute) + ':00'
+    if (e.detail.value.title.trim() === '') {
+      wx.showToast({
+        title: '标题不能为空',
+        icon: 'none',
+        duration: 1000,
+      })
+    } else if (e.detail.value.price.trim() === '') {
+      wx.showToast({
+        title: '总金额不能为空',
+        icon: 'none',
+        duration: 1000,
+      })
+    } else if (tags === '') {
+      wx.showToast({
+        title: '至少选择一个标签',
+        icon: 'none',
+        duration: 1000,
+      })
+    } else if (that.data.startDate === '请选择日期') {
+      wx.showToast({
+        title: '请选择开始时间',
+        icon: 'none',
+        duration: 1000,
+      })
+    } else if (that.data.endDate === '请选择日期') {
+      wx.showToast({
+        title: '请选择结束时间',
+        icon: 'none',
+        duration: 1000,
+      })
+    } else if (e.detail.value.address.trim() === '') {
+      wx.showToast({
+        title: '请填写发布地址',
+        icon: 'none',
+        duration: 1000,
+      })
+    } else {
+      
+      let query = {
+        title: e.detail.value.title.trim(),         // 标题
+        jobNumber: '1',                             //  工作人数
+        totalPrice: e.detail.value.price,           // 总金额
+        userId: '2222222',                          //  用户id
+        coordinate: '1122,343434',                  //  坐标
+        address: e.detail.value.address.trim(),     //  详细地址
+        tags: tags.substr(0, tags.length - 1),      //  标签
+        requirement: '11111',                       //  零工要求
+        jobDescription: e.detail.value.work.trim(), //  工作内容
+        startTime: startTime,                       //  开始时间
+        endTime: endTime,                           //  结束时间
+        account: '2222222222',                      //  用户名
+        phone: '11111111111',                       //  手机号码
+        headImage: '222222',                        //  用户头像
+        images: that.data.images,                   //  图片
+        city: that.data.region[0],                  //  城市
+        area: that.data.region[1]                   //  区域
+      }
+      wx.request({
+        url: 'https://www.paizhao66.net/server/work/release',
+        method: 'POST',
+        data: {
+          ...query
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res) {
+          console.log(res)
+        }
+      })
+    }
   }
 })
