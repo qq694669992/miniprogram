@@ -1,3 +1,4 @@
+import api from '../../api/apiList'
 Page({
 
   /**
@@ -119,20 +120,13 @@ Page({
         duration: 1000
       })
     } else {
-      wx.request({
-        url: 'https://www.paizhao66.net/server/usercenter/userAuthentication',
-        data: {
-          userid: this.data.userId,
-          idpositiveimg: this.data.idZ,
-          idsideimg: this.data.idF,
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        method: 'POST',
-        success(res) {
-          console.log(res)
-        }
+      let query = {
+        userid: this.data.userId,
+        idpositiveimg: this.data.idZ.toString(),
+        idsideimg: this.data.idF.toString(),
+      }
+      api.userAuthentication(query).then((res) => {
+        console.log(res)
       })
     }
   }

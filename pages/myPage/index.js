@@ -1,3 +1,4 @@
+import api from '../../api/apiList'
 Page({
   data: {
     userId: '',
@@ -20,20 +21,16 @@ Page({
   },
   getUserInfo: function() {
     let that = this
-    wx.request({
-      url: 'https://www.paizhao66.net/server/usercenter/getUserCenter',
-      data: {
-        userid: that.data.userId
-      },
-      method: 'GET',
-      success(res) {
-        console.log(res)
-        let data = res.data
-        if (data.code === 'S0A00000') {
-          that.setData({
-            msgList: data.data
-          })
-        }
+    let query = {
+      userid: that.data.userId
+    }
+    api.getUserCenter(query).then((res) => {
+      console.log(res.data)
+      let data = res.data
+      if (data.code === 'S0A00000') {
+        that.setData({
+          msgList: data.data
+        })
       }
     })
   },
@@ -62,24 +59,16 @@ Page({
       content: '是否退出登陆？',
       success(res) {
         if (res.confirm) {
-          wx.request({
-            url: 'https://www.paizhao66.net/server/user/loginOut',
-            data: {
-
-            },
-            method: 'GET',
-            success: function(res) {
-              console.log(res.data)
-              if (res.data.code === 'S0A00000') {
-                wx.removeStorage({
-                  key: 'userId',
-                  success: function (res) {
-                    that.setData({
-                      userId: ''
-                    })
-                  },
-                })
-              }
+          api.loginOut().then((res) => {
+            if (res.data.code === 'S0A00000') {
+              wx.removeStorage({
+                key: 'userId',
+                success: function (res) {
+                  that.setData({
+                    userId: ''
+                  })
+                },
+              })
             }
           })
         } else {

@@ -1,3 +1,4 @@
+import api from '../../api/apiList'
 var date = new Date();
 var currentHours = date.getHours();
 var currentMinute = date.getMinutes();
@@ -104,16 +105,12 @@ Page({
   // 获取标签
   getLabel: function() {
     let that = this
-    wx.request({
-      url: 'https://www.paizhao66.net/server/tags/getTags',
-      method: 'GET',
-      success(res) {
-        let data = res.data
-        if (data.code === 'S0A00000') {
-          that.setData({
-            labelArray: data.tags
-          })
-        }
+    api.getTags().then(res => {
+      let data = res.data
+      if (data.code === 'S0A00000') {
+        that.setData({
+          labelArray: data.tags
+        })
       }
     })
   },
@@ -710,7 +707,7 @@ Page({
           ...query
         },
         header: {
-          'content-type': 'application/json;charset=utf-8'
+          // 'content-type': 'application/json;charset=utf-8'
         },
         success(res) {
           console.log(res)
