@@ -1,3 +1,4 @@
+import api from '../../api/apiList'
 Page({
 
   /**
@@ -74,20 +75,15 @@ Page({
   },
   getUserInfo: function () {
     let that = this
-    wx.request({
-      url: 'https://www.paizhao66.net/server/usercenter/getUserInfo',
-      data: {
-        "id": that.data.userId
-      },
-      method: 'GET',
-      success: function(res) {
-        console.log(res)
-        let data = res.data
-        if (data.code === 'S0A00000') {
-          that.setData({
-            userList: data.user
-          })
-        }
+    let query = {
+      "id": that.data.userId
+    }
+    api.getUserInfo(query).then((res) => {
+      let data = res.data
+      if (data.code === 'S0A00000') {
+        that.setData({
+          userList: data.user
+        })
       }
     })
   },

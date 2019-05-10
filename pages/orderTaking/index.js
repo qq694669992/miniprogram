@@ -1,3 +1,4 @@
+import api from '../../api/apiList'
 Page({
   data: {
     activeIndex: '0',
@@ -35,19 +36,12 @@ Page({
       distanceSorting: 'NO',
       evaluateSorting: 'NO',
     }
-    wx.request({
-      url: 'https://www.paizhao66.net/server/pages/getReceipts',
-      data: {
-        ...params
-      },
-      method: 'GET',
-      success: function(res) {
-        let data = res.data
-        if (data.code === 'S0A00000') {
-          that.setData({
-            list: data.receipts
-          })
-        }
+    api.getReceipts(params).then((res) => {
+      let data = res.data
+      if (data.code === 'S0A00000') {
+        that.setData({
+          list: data.receipts
+        })
       }
     })
   },

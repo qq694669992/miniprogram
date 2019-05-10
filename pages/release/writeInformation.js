@@ -680,7 +680,6 @@ Page({
         duration: 1000,
       })
     } else {
-      
       let query = {
         title: e.detail.value.title.trim(),         // 标题
         jobNumber: '1',                             //  工作人数
@@ -700,18 +699,8 @@ Page({
         city: that.data.region[0],                  //  城市
         area: that.data.region[1]                   //  区域
       }
-      wx.request({
-        url: 'https://www.paizhao66.net/server/work/release',
-        method: 'POST',
-        data: {
-          ...query
-        },
-        header: {
-          // 'content-type': 'application/json;charset=utf-8'
-        },
-        success(res) {
-          console.log(res)
-        }
+      api.release(query).then((res) => {
+        console.log(res)
       })
     }
   }

@@ -8,33 +8,42 @@ import api from './index';
 
 const path = {
   getIndexList: '/server/pages/index',       //  首页接口
-  getUserCenter: '/server/usercenter/getUserCenter',   // 我的获取个人信息
+  getReceipts: '/server/pages/getReceipts',            //接单列表
+  getTags: '/server/tags/getTags',      //  获取标签
+  release: '/server/work/release',                     //发布
+  getUserCenter: '/server/usercenter/getUserCenter',   // 获取我的
+  getUserInfo: '/server/usercenter/getUserInfo',       // 个人信息获取
   loginOut: '/server/user/loginOut',  // 退出登录
   userAuthentication: '/server/usercenter/userAuthentication',    //  我的认证
-
-  // 发布
-  getTags: '/server/tags/getTags',      //  获取标签
-
   logincode: '/server/user/logincode',  //  短信登录
 };
 
-const getIndexList = (form) => api.get(path.getIndexList, form)
+const getIndexList = (form) => api.get(path.getIndexList, form)       //  首页接口
 
-const getUserCenter = (form) => api.get(path.getUserCenter, form)
+const getReceipts = (form) => api.get(path.getReceipts, form)         //接单列表
 
-const loginOut = (form) => api.get(path.loginOut, form)
+const getTags = (form) => api.get(path.getTags, form)                 //  获取标签
 
-const userAuthentication = (form) => api.post(path.userAuthentication, form)
+const release = (form) => api.post(path.release, form)                //发布
 
-const getTags = (form) => api.get(path.getTags, form)
+const getUserCenter = (form) => api.get(path.getUserCenter, form)     // 获取我的
 
-const logincode = (form) => api.post(path.logincode, form)
+const getUserInfo = (form) => api.get(path.getUserInfo, form)         // 个人信息获取
+
+const loginOut = (form) => api.get(path.loginOut, form)               // 退出登录
+
+const userAuthentication = (form) => api.post(path.userAuthentication, form) //  我的认证
+
+const logincode = (form) => api.post(path.logincode, form)            //  短信登录
 
 export default {
   getIndexList,
+  getReceipts,
+  getTags,
+  release,
   getUserCenter,
   loginOut,
   userAuthentication,
-  getTags,
+  getUserInfo,
   logincode,
 };
