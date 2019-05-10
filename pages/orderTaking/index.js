@@ -3,7 +3,9 @@ Page({
   data: {
     activeIndex: '0',
     list: [],
-    imageUrl: 'http://img1.imgtn.bdimg.com/it/u=2735633715,2749454924&fm=26&gp=0.jpg'
+    compSorting: 'YES',
+    distanceSorting: 'NO',
+    evaluateSorting: 'NO',
   },
   onShow: function() {
     this.getList()
@@ -17,24 +19,34 @@ Page({
     let id = event.currentTarget.id
     if (id === 'all') {
       this.setData({
-        activeIndex: '0'
+        activeIndex: '0',
+        compSorting: 'YES',
+        distanceSorting: 'NO',
+        evaluateSorting: 'NO',
       })
     } else if (id === 'near') {
       this.setData({
-        activeIndex: '1'
+        activeIndex: '1',
+        compSorting: 'NO',
+        distanceSorting: 'YES',
+        evaluateSorting: 'NO',
       })
     } else if (id === 'praise') {
       this.setData({
-        activeIndex: '2'
+        activeIndex: '2',
+        compSorting: 'NO',
+        distanceSorting: 'NO',
+        evaluateSorting: 'YES',
       })
     }
+    this.getList()
   },
   getList: function() {
     let that = this
     let params = {
-      compSorting: 'NO',
-      distanceSorting: 'NO',
-      evaluateSorting: 'NO',
+      compSorting: that.data.compSorting,
+      distanceSorting: that.data.distanceSorting,
+      evaluateSorting: that.data.evaluateSorting,
     }
     api.getReceipts(params).then((res) => {
       let data = res.data

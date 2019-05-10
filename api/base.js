@@ -125,7 +125,7 @@ apiFun.prototype = {
       success(res) {
         if (res.data.code !== 'S0A00000') {
           wx.showModal({
-            content: res.data.message || '请求失败，请检查网络状态',
+            content: res.data.msg || '请求失败，请检查网络状态',
             showCancel: false
           })
         }
@@ -173,8 +173,9 @@ apiFun.prototype = {
       data,
       success(res) {
         if (res.data.code != 'S0A00000') {
+          console.log(res.data)
           wx.showModal({
-            content: res.data.message || '请求失败，请检查网络状态',
+            content: res.data.msg || '请求失败，请检查网络状态',
             showCancel: false,
             success(modalRes) {
               if (modalRes.confirm && typeof that.callback === 'function') {

@@ -1,5 +1,6 @@
 Page({
   data: {
+    keyword: '',
     searchHistory: [
       {
         name: '擦窗'
@@ -53,19 +54,14 @@ Page({
       }
     ],
   },
-  // searchInput: function() {
-  //   this.setData({
-  //     isShow: true
-  //   })
-  // },
-  // searchBlur: function() {
-  //   this.setData({
-  //     isShow: false
-  //   })
-  // },
+  searchInput(e) {
+    this.setData({
+      keyword: e.detail.value
+    })
+  },
   toSearchResult: function() {
     wx.navigateTo({
-      url: 'searchResult'
+      url: 'searchResult?keyword=' + this.data.keyword
     })
   }
 })

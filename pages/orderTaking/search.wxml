@@ -2,7 +2,7 @@
   <view class="search-view">
     <view class="search-input-view">
       <image src="../../img/orderTaking/search.png" class="search-icon" />
-      <input placeholder="请输入搜索关键词" class="search-input" />
+      <input placeholder="请输入搜索关键词" class="search-input" bindinput='searchInput' />
     </view>
     <view class="search-btn" bindtap="toSearchResult">
       <text>搜索</text>

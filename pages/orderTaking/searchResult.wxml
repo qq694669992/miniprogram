@@ -2,7 +2,7 @@
   <view class="search-view">
     <view class="search-input" bindtap="toSearch">
       <image src="../../img/orderTaking/search.png" class="search-icon"/>
-      <text class="search-text">请输入搜索关键词</text>
+      <text class="search-text">{{keyword}}</text>
     </view>
     <view class="search-btn" bindtap="toSearch">
       <text>搜索</text>
