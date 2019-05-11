@@ -107,7 +107,7 @@ Page({
       compSorting: this.data.compSorting,
       distanceSorting: this.data.distanceSorting,
       evaluateSorting: this.data.evaluateSorting,
-      keyword: this.data.keyword,
+      keyWord: this.data.keyword,
     }
     api.searchList(query).then((res) => {
       console.log(res)
