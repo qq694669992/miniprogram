@@ -29,29 +29,30 @@
     </view>
   </view>
   <view class="search-content">
-    <view class="floor-view">
+    <view class="floor-view" wx:for="{{resultList}}" wx:key="index">
       <view class="bg-view">
         <image src="../../img/bg.png"></image>
       </view>
       <view class="goods-view">
         <view class="goods-img-view">
-          <image src="{{imageUrl}}" class="goods-img"></image>
+          <image src="{{item.imgUrl}}" class="goods-img"></image>
         </view>
         <view class="goods-content">
           <view class="goods-msg">
-            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
-            <text class="goods-price">399.00</text>
+            <text class="goods-name">{{item.jobDescription}}</text>
+            <text class="null"></text>
+            <text class="goods-price">{{item.totalPrice}}</text>
           </view>
           <view class="goods-msg">
             <view>
               <image src="../../img/mingrentang.png" class="people-icon"></image>
-              <text class="people-see">296</text>
+              <text class="people-see">{{item.jobNumber}}</text>
             </view>
             <view class="goods-address">
               <image src="../../img/dizhi.png" class="address-icon"></image>  
-              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
+              <text decode="{{true}}">{{item.city}}&nbsp;&nbsp;</text>
               <text decode="{{true}}">|</text>
-              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
+              <text decode="{{true}}">&nbsp;&nbsp;{{item.area}}</text>
             </view>
             <view class="null"></view>
             <view class="order-taking-view">
@@ -63,71 +64,5 @@
       </view>
     </view>
 
-    <view class="floor-view">
-      <view class="bg-view">
-        <image src="../../img/bg.png"></image>
-      </view>
-      <view class="goods-view">
-        <view class="goods-img-view">
-          <image src="{{imageUrl}}" class="goods-img"></image>
-        </view>
-        <view class="goods-content">
-          <view class="goods-msg">
-            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
-            <text class="goods-price">399.00</text>
-          </view>
-          <view class="goods-msg">
-            <view>
-              <image src="../../img/mingrentang.png" class="people-icon"></image>
-              <text class="people-see">296</text>
-            </view>
-            <view class="goods-address">
-              <image src="../../img/dizhi.png" class="address-icon"></image>  
-              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
-              <text decode="{{true}}">|</text>
-              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
-            </view>
-            <view class="null"></view>
-            <view class="no-taking">
-              <text class="no-taking-text">已接单</text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-
-    <view class="floor-view">
-      <view class="bg-view">
-        <image src="../../img/bg.png"></image>
-      </view>
-      <view class="goods-view">
-        <view class="goods-img-view">
-          <image src="{{imageUrl}}" class="goods-img"></image>
-        </view>
-        <view class="goods-content">
-          <view class="goods-msg">
-            <text class="goods-name">油烟机清洗油烟机清洗油烟机油烟机清洗油烟机清洗油烟机</text>
-            <text class="goods-price">399.00</text>
-          </view>
-          <view class="goods-msg">
-            <view>
-              <image src="../../img/mingrentang.png" class="people-icon"></image>
-              <text class="people-see">296</text>
-            </view>
-            <view class="goods-address">
-              <image src="../../img/dizhi.png" class="address-icon"></image>  
-              <text decode="{{true}}">深圳&nbsp;&nbsp;</text>
-              <text decode="{{true}}">|</text>
-              <text decode="{{true}}">&nbsp;&nbsp;龙岗区</text>
-            </view>
-            <view class="null"></view>
-            <view class="order-taking-view">
-              <image src='../../img/orderTaking/order-taking-btn.png' class="btn-image"/>
-              <text class="btn-text">立即接单</text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
   </view>
 </view>

@@ -1,4 +1,5 @@
 import api from '../../api/apiList'
+const app = getApp()
 Page({
   data: {
     userId: '',
@@ -78,8 +79,9 @@ Page({
     })
   },
   login: function () {
-    wx.navigateTo({
-      url: '../login/index',
-    })
+    app.goAuthPages()
+    // wx.navigateTo({
+    //   url: '../login/index',
+    // })
   }
 })

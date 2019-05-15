@@ -9,6 +9,7 @@
 .header image {
     width: 170rpx;
     height: 170rpx;
+    border-radius: 50%;
 }
 .content {
     /* margin-left: 50rpx;

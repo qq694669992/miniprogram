@@ -16,6 +16,9 @@ const path = {
   getUserInfo: '/server/usercenter/getUserInfo',       // 个人信息获取
   loginOut: '/server/user/loginOut',  // 退出登录
   userAuthentication: '/server/usercenter/userAuthentication',    //  我的认证
+  getOpenid: '/server/wxlogin/getOpenid',                         //  获取openId
+  getDecryptByMobile: '/server/wxlogin/getDecryptByMobile',       //  获取微信手机号码
+  wxlogin: '/server/wxlogin/wxlogin',                             //  微信号码登录
   logincode: '/server/user/logincode',  //  短信登录
 };
 
@@ -37,6 +40,12 @@ const loginOut = (form) => api.get(path.loginOut, form)               // 退出�
 
 const userAuthentication = (form) => api.post(path.userAuthentication, form) //  我的认证
 
+const getOpenid = (form) => api.get(path.getOpenid, form)            //  获取openId
+
+const getDecryptByMobile = (form) => api.get(path.getDecryptByMobile, form)    //  获取手机微信号码
+
+const wxlogin = (form) => api.get(path.wxlogin, form)                 //  微信号码登录
+
 const logincode = (form) => api.post(path.logincode, form)            //  短信登录
 
 export default {
@@ -49,5 +58,8 @@ export default {
   loginOut,
   userAuthentication,
   getUserInfo,
+  getOpenid,
+  getDecryptByMobile,
+  wxlogin,
   logincode,
 };

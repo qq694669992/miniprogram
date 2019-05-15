@@ -10,7 +10,7 @@ Page({
     compSorting: 'YES',
     distanceSorting: 'NO',
     evaluateSorting: 'NO',
-    imageUrl: 'http://img1.imgtn.bdimg.com/it/u=2735633715,2749454924&fm=26&gp=0.jpg'
+    resultList: [],
   },
 
   /**
@@ -110,7 +110,13 @@ Page({
       keyWord: this.data.keyword,
     }
     api.searchList(query).then((res) => {
-      console.log(res)
+      let data = res.data
+      console.log(data)
+      if (data.code === 'S0A00000') {
+        this.setData({
+          resultList: data.works
+        })
+      }
     })
   }
 })

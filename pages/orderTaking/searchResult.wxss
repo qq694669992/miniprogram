@@ -116,7 +116,6 @@
   text-overflow: ellipsis;
 }
 .goods-price {
-  flex: 1;
   font-size: 34rpx;
   color: #F7622E;
 }

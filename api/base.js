@@ -35,6 +35,22 @@ const dealObjectValue = (obj) => {
   return param;
 }
 
+/**
+ * get方法值为空时不过滤key
+ */
+const dealGetObjectValue = (obj) => {
+  let param = {};
+  if (obj === null || obj === undefined) return param;
+  for (var key in obj) {
+    if (dataType(obj[key]) === 'Object') {
+      param[key] = dealObjectValue(obj[key])
+    } else if (obj[key] !== null && obj[key] !== undefined) {
+      param[key] = obj[key];
+    }
+  }
+  return param;
+}
+
 const urlParams = (url, params) => {
   let ret = decodeURIComponent(url);
 
@@ -107,8 +123,8 @@ apiFun.prototype = {
    */
   get(path, data, open = false, token = false, responseType = 'text') {
     const that = this;
-    let reqData = dealObjectValue(data);
-    let reqParams = dealObjectValue(that.params);
+    let reqData = dealGetObjectValue(data);
+    let reqParams = dealGetObjectValue(that.params);
     // 请求前先拦截一下，看用户有没有自定义事件
     if (typeof that.request === 'function') {
       that.request(that);

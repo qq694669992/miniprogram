@@ -1,4 +1,6 @@
 // pages/login/index.js
+import api from '../../api/apiList'
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +14,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    wx.login({
+      success(res) {
+        console.log(res)
+        if (res.errMsg === 'login:ok') {
+          let query = {
+            code: res.code
+          }
+          api.getOpenid(query).then((res) => {
+            let data = res.data
+            if (data.code === 'S0A00000') {
+              wx.setStorageSync('openId', data.openid)
+              wx.setStorageSync('sessionKey', data.session_key)
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -63,9 +81,52 @@ Page({
   onShareAppMessage: function () {
 
   },
+  toGetPhone(e) {
+    console.log(e)
+    let data = e.detail
+    if (data.errMsg === 'getPhoneNumber:ok') {
+      wx.checkSession({
+        success(e) {
+          console.log(e)
+          if (e.errMsg === 'checkSession:ok') {
+            let query = {
+              session_key: wx.getStorageSync('sessionKey'),
+              encryptedData: data.encryptedData,
+              iv: data.iv
+            }
+            api.getDecryptByMobile(query).then((res) => {
+              let data = res.data
+              if (data.code === 'S0A00000') {
+                wx.setStorageSync('phoneNumber', JSON.parse(data.data).phoneNumber)
+                let query = {
+                  openid: wx.getStorageSync('openId'),
+                  mobile: wx.getStorageSync('phoneNumber')
+                }
+                api.wxlogin(query).then((res) => {
+                  console.log(res)
+                  let dataList = res.data
+                  if (dataList.code === 'S0A00000') {
+                    wx.setStorageSync('userId', dataList.userid)
+                    console.log(1111)
+                    wx.switchTab({
+                      url: '/pages/myPage/index',
+                    })
+                  }
+                })
+              }
+            })
+          }
+        }
+      })
+    }
+  },
   toPhoneLogin: function () {
-    wx.navigateTo({
-      url: 'phoneLogin'
-    })
+  //   wx.navigateTo({
+  //     url: 'phoneLogin'
+  //   })
+    let openId = wx.getStorageSync('openId')
+    let sessionKey = wx.getStorageSync('sessionKey')
+    console.log('openId', openId)
+    console.log('sessionKey', sessionKey)
   }
 })

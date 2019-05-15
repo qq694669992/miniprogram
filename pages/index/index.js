@@ -1,3 +1,4 @@
+const app = getApp()
 import api from '../../api/apiList'
 Page({
   data: {
