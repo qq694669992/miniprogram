@@ -121,12 +121,8 @@ Page({
     }
   },
   toPhoneLogin: function () {
-  //   wx.navigateTo({
-  //     url: 'phoneLogin'
-  //   })
-    let openId = wx.getStorageSync('openId')
-    let sessionKey = wx.getStorageSync('sessionKey')
-    console.log('openId', openId)
-    console.log('sessionKey', sessionKey)
+    wx.navigateTo({
+      url: 'phoneLogin'
+    })
   }
 })

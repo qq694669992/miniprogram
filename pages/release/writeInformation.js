@@ -135,9 +135,7 @@ Page({
         let tempFilePaths = res.tempFilePaths
         let newList = that.data.images
         for (let i = 0; i < tempFilePaths.length; i++) {
-          console.log(newList)
           newList.push(tempFilePaths[i])
-          console.log(newList)
         }
         that.setData({
           images: newList
@@ -169,7 +167,6 @@ Page({
     this.setData({
       isAgree: e.detail.value
     })
-    console.log(this.data.isAgree)
   },
   //获取开始时间日期
   pickerTap: function () {
@@ -371,20 +368,6 @@ Page({
     var monthDay = that.data.multiArray[0][e.detail.value[0]];
     var hours = that.data.multiArray[1][e.detail.value[1]];
     var minute = that.data.multiArray[2][e.detail.value[2]];
-    // if (monthDay === "今天") {
-    //   var month = date.getMonth() + 1;
-    //   var day = date.getDate();
-    //   monthDay = month + "月" + day + "日";
-    // } else if (monthDay === "明天") {
-    //   var date1 = new Date(date);
-    //   date1.setDate(date.getDate() + 1);
-    //   monthDay = (date1.getMonth() + 1) + "月" + date1.getDate() + "日";
-
-    // } else {
-    //   var month = monthDay.split("-")[0]; // 返回月
-    //   var day = monthDay.split("-")[1]; // 返回日
-    //   monthDay = month + "月" + day + "日";
-    // }
 
     var startDate = monthDay + hours + minute;
     that.setData({
@@ -427,19 +410,22 @@ Page({
       multiEndArray: this.data.multiEndArray,
       multiEndIndex: this.data.multiEndIndex
     };
-    console.log("data:" + JSON.stringify(data))
-    // console.log(data.multiEndArray[0])
-    if (data.multiEndArray[0] === 0) {
+    console.log(data)
+    if (data.multiEndIndex[0] === 0) {
       if (data.multiEndIndex[1] === 0) {
         this.loadEndData(hours, minute);
       } else {
         this.loadEndMinute(hours, minute);
       }
     } else {
-      console.log(22222)
-      this.loadEndData(hours, minute);
+      this.loadEndHoursMinute(hours, minute);
     }
-
+    if (data.multiEndArray[1].length === 0 || data.multiEndArray[1].length === 24) {
+      for (let j = 0; j < 24; j++) {
+        hours.push(j + '时')
+      }
+      monthDay.splice(0, 1)
+    }
     data.multiEndArray[0] = monthDay;
     data.multiEndArray[1] = hours;
     data.multiEndArray[2] = minute;
@@ -450,6 +436,7 @@ Page({
 
 
   bindMultiEndPickerColumnChange: function (e) {
+    console.log(e)
     date = new Date(this.data.endDate);
     var that = this;
 
@@ -465,7 +452,6 @@ Page({
     };
     // 把选择的对应值赋值给 multiIndex
     data.multiEndIndex[e.detail.column] = e.detail.value;
-
     // 然后再判断当前改变的是哪一列,如果是第1列改变
     if (e.detail.column === 0) {
       // 如果第一列滚动到第一行
@@ -485,11 +471,12 @@ Page({
 
       // 如果第一列为今天
       if (data.multiEndIndex[0] === 0) {
-        if (e.detail.value === 0) {
-          that.loadEndData(hours, minute);
-        } else {
-          that.loadEndMinute(hours, minute);
-        }
+        // if (e.detail.value === 0) {
+        //   that.loadEndData(hours, minute);
+        // } else {
+        //   that.loadEndMinute(hours, minute);
+        // }
+        that.loadEndData(hours, minute);
         // 第一列不为今天
       } else {
         that.loadEndHoursMinute(hours, minute);
@@ -604,7 +591,6 @@ Page({
     var monthDay = that.data.multiEndArray[0][e.detail.value[0]];
     var hours = that.data.multiEndArray[1][e.detail.value[1]];
     var minute = that.data.multiEndArray[2][e.detail.value[2]];
-
     // if (monthDay === "今天") {
     //   var month = date.getMonth() + 1;
     //   var day = date.getDate();
@@ -637,10 +623,6 @@ Page({
         tags += that.data.labelArray[i].tagName + ','
       }
     }
-    console.log('startMonth', that.data.startMonth)
-    console.log('startDay', that.data.startDay)
-    console.log('startHours', that.data.startHours)
-    console.log('startMinute', that.data.startMinute)
     let startTime = '2019-' + (that.data.startMonth < 10 ? '0' + that.data.startMonth : that.data.startMonth) + '-' + (that.data.startDay < 10 ? '0' + that.data.startDay : that.data.startDay) + ' ' + (that.data.startHours < 10 ? '0' + that.data.startHours : that.data.startHours) + ':' + (that.data.startMinute < 10 ? '0' + that.data.startMinute : that.data.startMinute) + ':00'
     let endTime = '2019-' + (that.data.endMonth < 10 ? '0' + that.data.endMonth : that.data.endMonth) + '-' + (that.data.endDay < 10 ? '0' + that.data.endDay : that.data.endDay) + ' ' + (that.data.endHours < 10 ? '0' + that.data.endHours : that.data.endHours) + ':' + (that.data.endMinute < 10 ? '0' + that.data.endMinute : that.data.endMinute) + ':00'
     if (e.detail.value.title.trim() === '') {

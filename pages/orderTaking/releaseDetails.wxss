@@ -163,7 +163,7 @@ page {
   width: 690rpx;
   height: 480rpx;
 }
-.map-view image {
+#detailsMap {
   width: 100%;
   height: 100%;
 }

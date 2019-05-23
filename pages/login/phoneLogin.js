@@ -14,7 +14,6 @@ Page({
     }
   },
   toNext (e) {
-    console.log(e.detail.value)
     wx.navigateTo({
       url: 'verificationCode?phoneNum=' + e.detail.value.phone
     })

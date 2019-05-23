@@ -1,0 +1,14 @@
+<view>
+  <picker 
+    mode="multiSelector"
+    bindtap="openStartTime"
+    bindchange="startTimeChange"
+    bindcolumnchange="startTimeColumnChange"
+    value="{{multiIndex}}"
+    range="{{multiArray}}"
+  >
+    <view>
+      当前选择：{{startTimeArray[0][startTimeIndex[0]]}},{{startTimeArray[1][startTimeIndex[1]]}},{{startTimeArray[2][startTimeIndex[2]]}}
+    </view>
+  </picker>
+</view>

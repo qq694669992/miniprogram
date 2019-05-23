@@ -30,7 +30,11 @@ Page({
         name: '清洗办公室'
       }
     ],
-    isAgree: false
+    isAgree: false,
+    markers: [{
+      latitude: 22.54077,
+      longitude: 113.94609,
+    }]
   },
 
   /**

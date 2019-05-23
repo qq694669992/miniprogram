@@ -19,6 +19,7 @@ const path = {
   getOpenid: '/server/wxlogin/getOpenid',                         //  获取openId
   getDecryptByMobile: '/server/wxlogin/getDecryptByMobile',       //  获取微信手机号码
   wxlogin: '/server/wxlogin/wxlogin',                             //  微信号码登录
+  getVcode: '/server/user/getVcode',                              //  获取手机验证码
   logincode: '/server/user/logincode',  //  短信登录
 };
 
@@ -46,6 +47,8 @@ const getDecryptByMobile = (form) => api.get(path.getDecryptByMobile, form)    /
 
 const wxlogin = (form) => api.get(path.wxlogin, form)                 //  微信号码登录
 
+const getVcode = (form) => api.get(path.getVcode, form)               //  获取手机验证码
+
 const logincode = (form) => api.post(path.logincode, form)            //  短信登录
 
 export default {
@@ -61,5 +64,6 @@ export default {
   getOpenid,
   getDecryptByMobile,
   wxlogin,
+  getVcode,
   logincode,
 };
