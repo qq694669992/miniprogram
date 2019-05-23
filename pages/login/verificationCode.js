@@ -6,8 +6,8 @@ Page({
     inputLen: 4,
     iptValue: "",
     isFocus: false,
-    text: '30s后 重新获取验证码',
-    currentTime: 31,
+    text: '60s后 重新获取验证码',
+    currentTime: 61,
     disabledSend: true,
     disabled: true,
     codeSession: '',
@@ -56,7 +56,7 @@ Page({
             clearInterval(interval)
             that.setData({
               text: '重新获取验证码',
-              currentTime: 31,
+              currentTime: 61,
               disabledSend: false,
             })
           }

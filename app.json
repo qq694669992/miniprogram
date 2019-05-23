@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/map/index",
     "pages/index/index",
     "pages/authorization/authorization",
     "pages/orderTaking/index",
@@ -20,7 +19,8 @@
     "pages/myPage/cashout",
     "pages/myPage/evaluate",
     "pages/myPage/userAgreement",
-    "pages/orderTaking/releaseDetails"
+    "pages/orderTaking/releaseDetails",
+    "pages/map/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,7 +35,7 @@
     "selectedColor": "#F85B2D",
     "list": [
       {
-        "pagePath": "pages/map/index",
+        "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "img/icon/icon_home.png",
         "selectedIconPath": "img/icon/icon_home_on.png"
