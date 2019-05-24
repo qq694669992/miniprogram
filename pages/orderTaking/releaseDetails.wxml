@@ -1,27 +1,28 @@
 <view class="release-details">
   <view class="release-msg">
     <view class="release-msg-address">
-      <text>坂田街道办坂田小区搬家清理卫生坂田街道办 坂田小区搬家清理卫生坂田街道办坂田小区</text>
+      <text>{{list.title}}</text>
     </view>
     <view class="release-msg-info">
-      <view class="release-msg-info-price">¥399.00</view>
+      <view class="release-msg-info-price">¥{{list.totalPrice}}</view>
       <view class="null"></view>
       <view>
         <image src="../../img/dizhi.png" class="release-msg-info-icon"/>
-        <text class="release-msg-info-area">深圳  |  龙岗区</text>
+        <text class="release-msg-info-area">{{list.city}}  |  {{list.area}}</text>
       </view>
     </view>
     <view class="release-people-msg">
       <view class="release-people-msg-icon">
-        <image src="../../img/mingrentang.png" />
+        <image src="{{list.headImages}}" />
       </view>
       <view class="release-people-msg-info">
         <view class="release-people-msg-info-name">
-          <text>天天向上好好学习</text>
+          <text>{{list.account}}</text>
         </view>
         <view class="release-people-msg-info-authentication">
-          <image src="../../img/mypage/renzheng.png" class="authentication-icon"/>
-          <text class="authentication-text">已认证</text>
+          <image src="../../img/mypage/renzheng-cheng.png" class="authentication-icon"/>
+          <text class="authentication-text" wx:if="{{list.iscertification === '1'}}">已认证</text>
+          <text class="authentication-text" wx:if="{{list.iscertificationc=== '0'}}">未认证</text>
         </view>
       </view>
       <view class="null"></view>
@@ -35,14 +36,14 @@
     <view class="odd-job-details">
       <view class="odd-job-details-title">零工详情</view>
       <view class="odd-job-details-tips">零工职责：</view>
-      <view class="odd-job-details-info">零工职责零工职责零工职责零工职责零工职责零工职责 零工职责零工职责零工职责零工职责零工职责零工职责 零工职责零工职责零工职责</view>
+      <view class="odd-job-details-info">{{list.jobDescription}}</view>
     </view>
     <view class="label">
       <view class="label-title">标签</view>
       <view>
         <view class="label-content">
           <view class="label-list" wx:for="{{labelArray}}" wx:key="index" >
-            <text>{{item.name}}</text>
+            <text>{{item}}</text>
           </view>
         </view>
       </view>
@@ -50,26 +51,21 @@
     <view class="word-environment">
       <view class="word-environment-title">工作环境</view>
       <view class="word-environment-info">
-        <view class="word-environment-info-img">
-          <image src="http://img1.imgtn.bdimg.com/it/u=2735633715,2749454924&fm=26&gp=0.jpg"/>
-        </view>
-        <view class="word-environment-info-img">
-          <image src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=530ec56bc43d70cf58f7a25f99b5ba65/50da81cb39dbb6fd7e5672740424ab18972b3756.jpg"/>
-        </view>
-        <view class="word-environment-info-img">
-          <image src="http://img1.imgtn.bdimg.com/it/u=2735633715,2749454924&fm=26&gp=0.jpg"/>
+        <view class="word-environment-info-img" wx:for="{{images}}" wx:key="index">
+          <image src="{{itme}}"/>
         </view>
       </view>
     </view>
     <view class="word-time">
       <view class="word-time-title">时长</view>
-      <view class="word-time-text">2.5小时</view>
+      <view class="word-time-text">{{list.startTime}} - {{list.endTime}}</view>
+      <view class="word-time-text">{{list.timeLength}}小时</view>
     </view>
     <view class="map-view">
       <map
         id="detailsMap"
-        longitude="113.94609"
-        latitude="22.54077"
+        longitude="{{longitude}}"
+        latitude="{{latitude}}"
         scale="18"
         markers="{{markers}}"
       ></map>

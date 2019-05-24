@@ -29,7 +29,7 @@
     </view>
   </view>
   <view class="search-content">
-    <view class="floor-view" bindtap="toReleaseDetails" wx:for="{{list}}" wx:key="index">
+    <view class="floor-view" bindtap="toReleaseDetails" wx:for="{{list}}" wx:key="index" data-recruitid="{{item.recruitId}}">
       <view class="bg-view">
         <image src="../../img/bg.png"></image>
       </view>

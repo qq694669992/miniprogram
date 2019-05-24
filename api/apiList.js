@@ -10,6 +10,7 @@ const path = {
   getIndexList: '/server/pages/index',       //  首页接口
   getReceipts: '/server/pages/getReceipts',            //接单列表
   searchList: '/server/pages/searchList',              // 接单搜索
+  getWorkDetails: '/server/work/getWorkDetails',    // 订单详情
   getTags: '/server/tags/getTags',      //  获取标签
   release: '/server/work/release',                     //发布
   getUserCenter: '/server/usercenter/getUserCenter',   // 获取我的
@@ -28,6 +29,8 @@ const getIndexList = (form) => api.get(path.getIndexList, form)       //  首页
 const getReceipts = (form) => api.get(path.getReceipts, form)         //接单列表
 
 const searchList = (form) => api.get(path.searchList, form)           //接单搜索
+
+const getWorkDetails = (form) => api.get(path.getWorkDetails, form)   //订单详情
 
 const getTags = (form) => api.get(path.getTags, form)                 //  获取标签
 
@@ -55,6 +58,7 @@ export default {
   getIndexList,
   getReceipts,
   searchList,
+  getWorkDetails,
   getTags,
   release,
   getUserCenter,

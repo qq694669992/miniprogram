@@ -57,9 +57,9 @@ Page({
       }
     })
   },
-  toReleaseDetails: function() {
+  toReleaseDetails: function(e) {
     wx.navigateTo({
-      url: 'releaseDetails',
+      url: 'releaseDetails?recruitId=' + e.currentTarget.dataset.recruitid,
     })
   }
 })
