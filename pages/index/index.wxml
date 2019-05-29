@@ -24,7 +24,7 @@
     <view class="content-title">
       <text class="banner-text">已完成交易</text>
       <text class="null"></text>
-      <text class="banner-btn">更多></text>
+      <text class="banner-btn" bindtap="toMore">更多></text>
     </view>
     <view class="floor-view" wx:for="{{list}}" wx:key="index">
       <view class="bg-view">

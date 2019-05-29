@@ -1,4 +1,5 @@
 import api from '../../api/apiList'
+import qqmapsdk from '../../api/map'
 var date = new Date();
 var currentHours = date.getHours();
 var currentMinute = date.getMinutes();
@@ -615,6 +616,20 @@ Page({
       endMinute: minute.substr(0, minute.indexOf('分')),
     })
   },
+
+  blurAddress(e) {
+    console.log(e.detail.value)
+    qqmapsdk.getQQGeocoder(e.detail.value, (res) => {
+      console.log(res)
+    })
+  },
+
+  toAgreement(e) {
+    wx.redirectTo({
+      url: '/pages/release/agreement',
+    })
+  },
+
   release:function (e) {
     let that = this
     let tags = ''

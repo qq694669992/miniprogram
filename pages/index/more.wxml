@@ -1,0 +1,69 @@
+<view class="order-taking">
+  <view class="search-view">
+    <view class="search-input" bindtap="toSearch">
+      <image src="../../img/orderTaking/search.png" class="search-icon"/>
+      <text class="search-text">请输入搜索关键词</text>
+    </view>
+    <view class="search-btn" bindtap="toSearch">
+      <text>搜索</text>
+    </view>
+  </view>
+  <view class="search-chosen">
+    <view class="chosen-view" bindtap="chosenView" id="all">
+      <view class="chosen-text {{activeIndex === '0' ? 'active-text' : ''}}">
+        <text>综合排序</text>
+      </view>
+      <view class="active-line" wx:if="{{activeIndex === '0'}}"></view>
+    </view>
+    <view class="chosen-view" bindtap="chosenView" id="near">
+      <view class="chosen-text {{activeIndex === '1' ? 'active-text' : ''}}">
+        <text>离我最近</text>
+      </view>
+      <view class="active-line" wx:if="{{activeIndex === '1'}}"></view>
+    </view>
+    <view class="chosen-view" bindtap="chosenView" id="praise">
+      <view class="chosen-text {{activeIndex === '2' ? 'active-text' : ''}}">
+        <text>好评多</text>
+      </view>
+      <view class="active-line" wx:if="{{activeIndex === '2'}}"></view>
+    </view>
+  </view>
+  <view class="search-content">
+    <view class="floor-view" bindtap="toReleaseDetails" wx:for="{{list}}" wx:key="index" data-recruitid="{{item.recruitId}}">
+      <view class="bg-view">
+        <image src="../../img/bg.png"></image>
+      </view>
+      <view class="goods-view">
+        <view class="goods-img-view">
+          <image src="{{item.imgUrl}}" class="goods-img"></image>
+        </view>
+        <view class="goods-content">
+          <view class="goods-msg">
+            <view>
+              <text class="goods-name">{{item.jobDescription}}</text>
+            </view>
+            <view class="null">
+            </view>
+            <view>
+              <text class="goods-price">{{item.totalPrice}}</text>
+            </view>
+          </view>
+          <view class="goods-msg">
+            <view>
+              <image src="../../img/mingrentang.png" class="people-icon"></image>
+              <text class="people-see">1</text>
+            </view>
+            <view class="null"></view>
+            <view class="goods-address">
+              <image src="../../img/dizhi.png" class="address-icon"></image>  
+              <text decode="{{true}}">{{item.city}}&nbsp;&nbsp;</text>
+              <text decode="{{true}}">|</text>
+              <text decode="{{true}}">&nbsp;&nbsp;{{item.area}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

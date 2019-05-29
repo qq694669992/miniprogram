@@ -100,12 +100,13 @@
         </view>
       </view>
       <view class="release-address-details">
-        <textarea class="input-address-details" placeholder="请详细填写详细地址" name="address"/>
+        <textarea class="input-address-details" placeholder="请详细填写详细地址" name="address" bindblur='blurAddress'/>
       </view>
     </view>
     <view class="release-agreement">
       <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" />
-      <text class="agreement-content">我已阅读并同意《零工协议》</text>
+      <text class="agreement-content">我已阅读并同意</text>
+      <text class="agreement-content" bindtap='toAgreement'>《零工协议》</text>
     </view>
     <view>
       <button form-type="submit" class="release-btn">发布</button>

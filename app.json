@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/more",
     "pages/authorization/authorization",
     "pages/orderTaking/index",
     "pages/orderTaking/search",
     "pages/orderTaking/searchResult",
     "pages/release/index",
     "pages/release/writeInformation",
+    "pages/release/agreement",
     "pages/login/index",
     "pages/login/phoneLogin",
     "pages/login/verificationCode",
