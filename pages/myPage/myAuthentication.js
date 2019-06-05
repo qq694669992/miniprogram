@@ -88,7 +88,11 @@ Page({
       count: 1,
       success(res) {
         console.log(res)
+        let file = res.tempFilePaths[0]
         if (cardid === 'idZ') {
+          api.uploadimg(file).then(res => {
+            console.log(res.data)
+          })
           that.setData({
             isZFirst: false,
             idZ: res.tempFilePaths

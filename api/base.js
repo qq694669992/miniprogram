@@ -229,6 +229,53 @@ apiFun.prototype = {
     return this;
   },
 
+  /**
+   * uploadFile 方法
+   * @param {*} path 接口地址
+   * @param {*} data 参数
+   */
+  uploadFile(path, filePath, name = 'file', open = false, token = false) {
+    const that = this;
+    //  请求前先拦截一下，看用户有没有自定义事件
+    if (typeof that.request === 'function') {
+      that.request(that);
+    }
+    let baseUrl = open ? '' : that.baseUrl
+    wx.uploadFile({
+      filePath: filePath,
+      name,
+      url: `${baseUrl || ''}${path}`,
+      header: {
+        'Content-Type': 'multipart/form-data'
+      },
+      // formData: {
+      //   'files': filePath
+      // },
+      success(res) {
+        console.log('filePath', filePath)
+        if (res.data.code != 'S0A00000') {
+          wx.showModal({
+            content: res.data.message || '请求失败，请检查网络状态',
+            showCancel: false
+          })
+        }
+        if (typeof that.callback === 'function') {
+          that.callback(res, 1);
+        }
+      },
+      fail(res) {
+        if (typeof that.callback === 'function') {
+          wx.showModal({
+            content: '请求失败，请检查网络状态',
+            showCancel: false
+          })
+          that.callback(res, 0);
+        }
+      },
+    });
+    return this;
+  },
+
   // then  回调成功事件
   then(callback) {
     if (typeof callback === 'function') {
