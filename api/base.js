@@ -172,7 +172,14 @@ apiFun.prototype = {
    *  param,
    * });
    */
-  post(path, data, params) {
+  post(path, data, params, header) {
+    console.log(header)
+    let ContentType
+    if (header && header !== '') {
+      ContentType = header
+    } else {
+      ContentType = 'application/json;charset=UTF-8'
+    }
     const that = this;
     let reqparams = dealObjectValue(that.params);
     //  请求前先拦截一下，看用户有没有自定义事件
@@ -187,7 +194,11 @@ apiFun.prototype = {
         ...paramsSend,
       }),
       data,
+      header: {
+        "Content-Type": ContentType,
+      },
       success(res) {
+        console.log(ContentType)
         if (res.data.code != 'S0A00000') {
           console.log(res.data)
           wx.showModal({

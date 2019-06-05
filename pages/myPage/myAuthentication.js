@@ -34,7 +34,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log(this.isZFirst)
+    
   },
 
   /**
@@ -87,6 +87,7 @@ Page({
       sourceType: ['album', 'camera'],
       count: 1,
       success(res) {
+        console.log(res)
         if (cardid === 'idZ') {
           that.setData({
             isZFirst: false,
@@ -106,7 +107,6 @@ Page({
     })
   },
   authentication: function() {
-    console.log(this.data)
     if (this.data.idZ === '') {
       wx.showToast({
         title: '请上传身份证正面照',

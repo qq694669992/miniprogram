@@ -45,7 +45,7 @@ const getUserInfo = (form) => api.get(path.getUserInfo, form)         // 个人�
 
 const loginOut = (form) => api.get(path.loginOut, form)               // 退出登录
 
-const userAuthentication = (form) => api.post(path.userAuthentication, form) //  我的认证
+const userAuthentication = (form) => api.post(path.userAuthentication, form, '','multipart/form-data') //  我的认证
 
 const getOpenid = (form) => api.get(path.getOpenid, form)            //  获取openId
 
