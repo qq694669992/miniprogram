@@ -17,7 +17,7 @@ const path = {
   getUserCenter: '/server/usercenter/getUserCenter',   // 获取我的
   getUserInfo: '/server/usercenter/getUserInfo',       // 个人信息获取
   loginOut: '/server/user/loginOut',  // 退出登录
-  uploadimg: '/uploadfile/uploadimg',                             //  上传图片
+  uploadimg: '/server/uploadfile/uploadimg',                             //  上传图片
   userAuthentication: '/server/usercenter/userAuthentication',    //  我的认证
   getOpenid: '/server/wxlogin/getOpenid',                         //  获取openId
   getDecryptByMobile: '/server/wxlogin/getDecryptByMobile',       //  获取微信手机号码
@@ -48,7 +48,7 @@ const loginOut = (form) => api.get(path.loginOut, form)               // 退出�
 
 const uploadimg = (filePath) => api.uploadFile(path.uploadimg, filePath)      // 上传图片
 
-const userAuthentication = (form) => api.post(path.userAuthentication, form, '','multipart/form-data') //  我的认证
+const userAuthentication = (form) => api.post(path.userAuthentication, form) //  我的认证
 
 const getOpenid = (form) => api.get(path.getOpenid, form)            //  获取openId
 

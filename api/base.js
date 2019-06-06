@@ -242,25 +242,19 @@ apiFun.prototype = {
     }
     let baseUrl = open ? '' : that.baseUrl
     wx.uploadFile({
-      filePath: filePath,
+      filePath,
       name,
       url: `${baseUrl || ''}${path}`,
-      header: {
-        'Content-Type': 'multipart/form-data'
-      },
-      // formData: {
-      //   'files': filePath
-      // },
       success(res) {
-        console.log('filePath', filePath)
-        if (res.data.code != 'S0A00000') {
+        if (JSON.parse(res.data).code != 'S0A00000') {
           wx.showModal({
             content: res.data.message || '请求失败，请检查网络状态',
             showCancel: false
           })
-        }
-        if (typeof that.callback === 'function') {
-          that.callback(res, 1);
+        } else {
+          if (typeof that.callback === 'function') {
+            that.callback(res, 1);
+          }
         }
       },
       fail(res) {

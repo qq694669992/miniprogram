@@ -27,7 +27,6 @@ Page({
         })
       },
     })
-    console.log('isZFirst:' + that.data.isZFirst)
   },
 
   /**
@@ -87,26 +86,24 @@ Page({
       sourceType: ['album', 'camera'],
       count: 1,
       success(res) {
-        console.log(res)
         let file = res.tempFilePaths[0]
-        if (cardid === 'idZ') {
-          api.uploadimg(file).then(res => {
-            console.log(res.data)
-          })
-          that.setData({
-            isZFirst: false,
-            idZ: res.tempFilePaths
-          }, () => {
-            // console.log(that.data.images)
-          })
-        } else {
-          that.setData({
-            isFFirst: false,
-            idF: res.tempFilePaths
-          }, () => {
-            // console.log(that.data.images)
-          })
-        }
+        api.uploadimg(file).then(res => {
+          let data = JSON.parse(res.data)
+          console.log(data)
+          if (data.code === 'S0A00000') {
+            if (cardid === 'idZ') {
+              that.setData({
+                isZFirst: false,
+                idZ: data.imgurl
+              })
+            } else {
+              that.setData({
+                isFFirst: false,
+                idF: data.imgurl
+              })
+            }
+          }
+        })
       }
     })
   },
@@ -131,6 +128,12 @@ Page({
       }
       api.userAuthentication(query).then((res) => {
         console.log(res)
+        let data = res.data
+        if (data.code === 'S0A00000') {
+          wx.navigateBack({
+            delta: 1
+          })
+        }
       })
     }
   }
