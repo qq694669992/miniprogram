@@ -36,6 +36,8 @@ Page({
     })
   },
   toPage: function(event) {
+    console.log(event.currentTarget.dataset.url)
+    console.log(this.data.msgList.isverified)
     if (this.data.userId === '') {
       wx.showToast({
         title: '请先登陆',
@@ -48,9 +50,17 @@ Page({
         })
       }, 1000)
     } else {
-      wx.navigateTo({
-        url: event.currentTarget.dataset.url
-      })
+      if (event.currentTarget.dataset.url === 'myAuthentication' && this.data.msgList.isverified === 1) {
+        wx.showToast({
+          title: '已认证',
+          icon: 'none',
+          duration: 1000
+        })
+      } else {
+        wx.navigateTo({
+          url: event.currentTarget.dataset.url
+        })
+      }
     }
   },
   logOut: function() {

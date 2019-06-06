@@ -130,9 +130,16 @@ Page({
         console.log(res)
         let data = res.data
         if (data.code === 'S0A00000') {
-          wx.navigateBack({
-            delta: 1
+          wx.showToast({
+            title: '认证成功',
+            icon: 'none',
+            duration: 1000
           })
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000)
         }
       })
     }
