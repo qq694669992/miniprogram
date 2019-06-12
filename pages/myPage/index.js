@@ -50,17 +50,20 @@ Page({
         })
       }, 1000)
     } else {
-      if (event.currentTarget.dataset.url === 'myAuthentication' && this.data.msgList.isverified === 1) {
-        wx.showToast({
-          title: '已认证',
-          icon: 'none',
-          duration: 1000
-        })
-      } else {
-        wx.navigateTo({
-          url: event.currentTarget.dataset.url
-        })
-      }
+      wx.navigateTo({
+        url: event.currentTarget.dataset.url
+      })
+      // if (event.currentTarget.dataset.url === 'myAuthentication' && this.data.msgList.isverified === 1) {
+      //   wx.showToast({
+      //     title: '已认证',
+      //     icon: 'none',
+      //     duration: 1000
+      //   })
+      // } else {
+      //   wx.navigateTo({
+      //     url: event.currentTarget.dataset.url
+      //   })
+      // }
     }
   },
   logOut: function() {

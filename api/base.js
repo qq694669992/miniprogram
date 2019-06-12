@@ -122,6 +122,10 @@ apiFun.prototype = {
    *  @param {*} data 参数
    */
   get(path, data, open = false, token = false, responseType = 'text') {
+    wx.showToast({
+      title: '正在加载...',
+      icon: 'loading'
+    })
     const that = this;
     let reqData = dealGetObjectValue(data);
     let reqParams = dealGetObjectValue(that.params);
@@ -139,6 +143,7 @@ apiFun.prototype = {
         ...reqData
       },
       success(res) {
+        wx.hideToast()
         if (res.data.code !== 'S0A00000') {
           wx.showModal({
             content: res.data.msg || '请求失败，请检查网络状态',
@@ -150,6 +155,7 @@ apiFun.prototype = {
         }
       },
       fail(res) {
+        wx.hideToast()
         if (typeof that.callback === 'function') {
           wx.showModal({
             content: '请求失败，请检查网络状态',
@@ -173,7 +179,10 @@ apiFun.prototype = {
    * });
    */
   post(path, data, params, header) {
-    console.log(header)
+    wx.showToast({
+      title: '正在加载...',
+      icon: 'loading',
+    })
     let ContentType
     if (header && header !== '') {
       ContentType = header
@@ -198,6 +207,7 @@ apiFun.prototype = {
         "Content-Type": ContentType,
       },
       success(res) {
+        wx.hideToast()
         console.log(ContentType)
         if (res.data.code != 'S0A00000') {
           console.log(res.data)
@@ -217,6 +227,7 @@ apiFun.prototype = {
         }
       },
       fail(res) {
+        wx.hideToast()
         if (typeof that.callback === 'function') {
           wx.showModal({
             content: '请求失败，请检查网络状态',
@@ -235,6 +246,10 @@ apiFun.prototype = {
    * @param {*} data 参数
    */
   uploadFile(path, filePath, name = 'file', open = false, token = false) {
+    wx.showToast({
+      title: '正在加载...',
+      icon: 'loading',
+    })
     const that = this;
     //  请求前先拦截一下，看用户有没有自定义事件
     if (typeof that.request === 'function') {
@@ -246,6 +261,7 @@ apiFun.prototype = {
       name,
       url: `${baseUrl || ''}${path}`,
       success(res) {
+        wx.hideToast()
         if (JSON.parse(res.data).code != 'S0A00000') {
           wx.showModal({
             content: res.data.message || '请求失败，请检查网络状态',
@@ -258,6 +274,7 @@ apiFun.prototype = {
         }
       },
       fail(res) {
+        wx.hideToast()
         if (typeof that.callback === 'function') {
           wx.showModal({
             content: '请求失败，请检查网络状态',

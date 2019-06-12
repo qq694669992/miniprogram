@@ -10,6 +10,7 @@ Page({
     isFFirst: true,
     idZ: '',
     idF: '',
+    disabled: false,
   },
 
   /**
@@ -108,40 +109,56 @@ Page({
     })
   },
   authentication: function() {
-    if (this.data.idZ === '') {
-      wx.showToast({
-        title: '请上传身份证正面照',
-        icon: 'none',
-        duration: 1000
-      })
-    } else if (this.data.idF === '') {
-      wx.showToast({
-        title: '请上传身份证反面照',
-        icon: 'none',
-        duration: 1000
-      })
+    if (this.data.disabled) {
+
     } else {
-      let query = {
-        userid: this.data.userId,
-        idpositiveimg: this.data.idZ.toString(),
-        idsideimg: this.data.idF.toString(),
-      }
-      api.userAuthentication(query).then((res) => {
-        console.log(res)
-        let data = res.data
-        if (data.code === 'S0A00000') {
-          wx.showToast({
-            title: '认证成功',
-            icon: 'none',
-            duration: 1000
-          })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
+      if (this.data.idZ === '') {
+        wx.showToast({
+          title: '请上传身份证正面照',
+          icon: 'none',
+          duration: 1000
+        })
+      } else if (this.data.idF === '') {
+        wx.showToast({
+          title: '请上传身份证反面照',
+          icon: 'none',
+          duration: 1000
+        })
+      } else {
+        this.setData({
+          disabled: true
+        })
+        wx.showToast({
+          title: '加载中',
+          icon: 'loading',
+          duration: 300000,
+        })
+        let query = {
+          userid: this.data.userId,
+          idpositiveimg: this.data.idZ.toString(),
+          idsideimg: this.data.idF.toString(),
         }
-      })
+        api.userAuthentication(query).then((res) => {
+          let data = res.data
+          if (data.code === 'S0A00000') {
+            wx.showToast({
+              title: '认证成功',
+              icon: 'none',
+              duration: 1000
+            })
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000)
+          } else {
+            this.setData({
+              disabled: false
+            })
+          }
+        })
+      }
     }
+
   }
 })
