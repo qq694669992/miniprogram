@@ -128,11 +128,6 @@ Page({
         this.setData({
           disabled: true
         })
-        wx.showToast({
-          title: '加载中',
-          icon: 'loading',
-          duration: 300000,
-        })
         let query = {
           userid: this.data.userId,
           idpositiveimg: this.data.idZ.toString(),
