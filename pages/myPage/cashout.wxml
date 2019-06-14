@@ -1,5 +1,5 @@
 <view class="my-msg-page">
-  <form>
+  <form bindsubmit="cashout">
     <view class="my-msg-content">
         <view class="my-msg-list">
           <view class="my-msg-list-title">
@@ -7,7 +7,7 @@
           </view>
           <view class="null"></view>
           <view class="my-msg-list-content">
-            <text class='l-text'>550.00元</text>
+            <text class='l-text'>{{userBalance}}</text>
           </view>
         </view> 
     </view>
@@ -49,7 +49,7 @@
           </view>
           <view class="null"></view>
           <view class="my-msg-list-content">
-            <input class='input-title' name="amount" placeholder="请输入准确填写姓名" />
+            <input class='input-title' name="relName" placeholder="请输入准确填写姓名" />
           </view>
       </view>
 
@@ -59,7 +59,17 @@
           </view>
           <view class="null"></view>
           <view class="my-msg-list-content">
-            <input class='input-title' name="amount" placeholder="请准确填写银行卡" />
+            <input class='input-title' name="bankCard" placeholder="请准确填写银行卡" />
+          </view>
+      </view>
+
+      <view class="my-msg-list">
+          <view class="my-msg-list-title">
+            <text>提现金额</text>
+          </view>
+          <view class="null"></view>
+          <view class="my-msg-list-content">
+            <input class='input-title' name="amount" placeholder="请输入提现金额" />
           </view>
       </view>
 

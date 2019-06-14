@@ -24,6 +24,9 @@ const path = {
   wxlogin: '/server/wxlogin/wxlogin',                             //  微信号码登录
   getVcode: '/server/user/getVcode',                              //  获取手机验证码
   logincode: '/server/user/logincode',  //  短信登录
+  getUserBalance: '/server/usercenter/getUserBalance',  //  用户余额
+  userRecharge: '/server/usercenter/userRecharge',                //  充值
+  cashWithdrawal: '/server/usercenter/cashWithdrawal',            //  提现
 };
 
 const getIndexList = (form) => api.get(path.getIndexList, form)       //  首页接口
@@ -60,6 +63,12 @@ const getVcode = (form) => api.get(path.getVcode, form)               //  获取
 
 const logincode = (form) => api.post(path.logincode, form)            //  短信登录
 
+const getUserBalance = (form) => api.get(path.getUserBalance, form)   //  用户余额
+
+const userRecharge = (form) => api.post(path.userRecharge, form)      //  充值
+
+const cashWithdrawal = (form) => api.post(path.cashWithdrawal, form)  //  提现
+
 export default {
   getIndexList,
   workcomplete,
@@ -78,4 +87,7 @@ export default {
   wxlogin,
   getVcode,
   logincode,
+  getUserBalance,
+  userRecharge,
+  cashWithdrawal,
 };

@@ -1,5 +1,5 @@
 <view class="my-msg-page">
-  <form>
+  <form bindsubmit="toRecharge">
     <view class="my-msg-content">
         <view class="my-msg-list">
           <view class="my-msg-list-title">
@@ -7,7 +7,7 @@
           </view>
           <view class="null"></view>
           <view class="my-msg-list-content">
-            <text class='l-text'>550.00元</text>
+            <text class='l-text'>{{userBalance}}</text>
           </view>
         </view>
         <view class="my-msg-list">
@@ -36,7 +36,7 @@
       </view>
 
       <view class="release-agreement">
-        <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" />
+        <switch bindchange="switchChange" type="checkbox" checked="{{isChosen}}" style="zoom: 0.7" />
         <text class="agreement-content">我已阅读并同意《支付协议》</text>
       </view>
       <view>
