@@ -81,6 +81,7 @@ Page({
       sessionId: this.data.codeSession
     }
     api.logincode(query).then((res) => {
+      console.log(res)
       let data = res.data
       if (data.code === 'S0A00000') {
         wx.setStorage({

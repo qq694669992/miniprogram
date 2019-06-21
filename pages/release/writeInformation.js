@@ -9,9 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId: '',
+    account: '',
+    headImage: '',
+    phone: '',
     formUrl: '',
     labelArray: [],
     images: [],
+    imagesList: '',
     // startDate: '',
     // endDate: '',
     region: [],
@@ -38,8 +43,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      formUrl: options.formUrl
+    let that = this
+    console.log(wx.getStorageSync('userId'))
+    that.setData({
+      formUrl: options.formUrl,
+      userId: wx.getStorageSync('userId'),
+      account: wx.getStorageSync('account'),
+      headImage: wx.getStorageSync('headImage'),
+      phone: wx.getStorageSync('phone')
     })
     this.getLabel()
   },
@@ -70,6 +81,7 @@ Page({
    */
   onUnload: function () {
     //判断页面栈里面的页面数是否大于2
+    console.log(this.data.formUrl)
     if (getCurrentPages().length == 2) {
       //获取页面栈
       let pages = getCurrentPages()
@@ -129,6 +141,7 @@ Page({
   // 图片上传
   bindChooiceProduct: function() {
     let that = this
+    let imagelist = ''
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
@@ -136,13 +149,19 @@ Page({
         let tempFilePaths = res.tempFilePaths
         let newList = that.data.images
         for (let i = 0; i < tempFilePaths.length; i++) {
-          newList.push(tempFilePaths[i])
+          // newList.push(tempFilePaths[i])
+          let file = tempFilePaths[i]
+          api.uploadimg(file).then(res => {
+            let data = JSON.parse(res.data)
+            if (data.code === 'S0A00000') {
+              newList.push(data.imgurl)
+              imagelist = imagelist + ',' + data.imgurl
+              that.setData({
+                images: newList
+              })
+            }
+          })
         }
-        that.setData({
-          images: newList
-        }, () => {
-          // console.log(that.data.images)
-        })
       }
     })
   },
@@ -633,6 +652,7 @@ Page({
   release:function (e) {
     let that = this
     let tags = ''
+    console.log(that.data.images.join(','))
     for (let i in that.data.labelArray) {
       if (that.data.labelArray[i].isChosen) {
         tags += that.data.labelArray[i].tagName + ','
@@ -681,7 +701,7 @@ Page({
         title: e.detail.value.title.trim(),         // 标题
         jobNumber: '1',                             //  工作人数
         totalPrice: e.detail.value.price,           // 总金额
-        userId: '2222222',                          //  用户id
+        userId: that.data.userId,                          //  用户id
         coordinate: '1122,343434',                  //  坐标
         address: e.detail.value.address.trim(),     //  详细地址
         tags: tags.substr(0, tags.length - 1),      //  标签
@@ -689,15 +709,28 @@ Page({
         jobDescription: e.detail.value.work.trim(), //  工作内容
         startTime: startTime,                       //  开始时间
         endTime: endTime,                           //  结束时间
-        account: '2222222222',                      //  用户名
-        phone: '11111111111',                       //  手机号码
-        headImage: '222222',                        //  用户头像
-        images: "sddd,dddd",                   //  图片
+        account: that.data.account,                      //  用户名
+        phone: that.data.phone,                       //  手机号码
+        headImage: that.data.headImage,                        //  用户头像
+        images: that.data.images.join(','),                   //  图片
         city: that.data.region[0],                  //  城市
         area: that.data.region[1]                   //  区域
       }
       api.release(query).then((res) => {
         console.log(res)
+        let data = res.data
+        if (data.code === 'S0A00000') {
+          wx.showToast({
+            title: '发布成功',
+            icon: 'none',
+            duration: 1000,
+          })
+          setTimeout(function () {
+            wx.switchTab({
+              url: '/pages/orderTaking/index',
+            })
+          }, 1000)
+        }
       })
     }
   }

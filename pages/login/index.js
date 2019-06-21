@@ -103,11 +103,9 @@ Page({
                   mobile: wx.getStorageSync('phoneNumber')
                 }
                 api.wxlogin(query).then((res) => {
-                  console.log(res)
                   let dataList = res.data
                   if (dataList.code === 'S0A00000') {
                     wx.setStorageSync('userId', dataList.userid)
-                    console.log(1111)
                     wx.switchTab({
                       url: '/pages/myPage/index',
                     })

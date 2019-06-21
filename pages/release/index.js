@@ -31,17 +31,32 @@ Page({
     let prevpage = pages[0].__displayReporter.showReferpagepath.substring(pages[0].__displayReporter.showReferpagepath.indexOf('/') + 1)
     let prevPage = prevpage.substring(0, prevpage.indexOf('.'))
     //如果 isBack 为 true，就返回上一页
-    if (that.data.isBack) {
-      wx.switchTab({
-        url: '../' + that.data.formUrl
+    if (wx.getStorageSync('userId') === '') {
+      wx.showToast({
+        title: '请先登陆',
+        icon: 'none',
+        duration: 1000,
       })
-      that.setData({
-        isBack: false
-      })
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '../login/index',
+        })
+      }, 1000)
     } else {
-      wx.navigateTo({
-        url: 'writeInformation?formUrl=' + prevPage
-      })
+      if (that.data.isBack) {
+        console.log(that.data.isBack)
+        console.log(that.data.formUrl)
+        wx.switchTab({
+          url: '../' + that.data.formUrl
+        })
+        that.setData({
+          isBack: false
+        })
+      } else {
+        wx.navigateTo({
+          url: 'writeInformation?formUrl=' + prevPage
+        })
+      }
     }
   },
 

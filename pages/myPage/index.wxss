@@ -22,7 +22,6 @@ page {
   height: 120rpx;
   border-radius: 50%;
   overflow: hidden;
-  background: black;
 }
 .my-page-msg_icon {
   width: 100%;

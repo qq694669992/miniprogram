@@ -10,15 +10,12 @@ Page({
     wx.getStorage({
       key: 'userId',
       success (res) {
-        console.log(res.data)
         that.setData({
           userId: res.data
         })
         that.getUserInfo()
-        console.log(that.data.msgList)
       },
     })
-    console.log(this.data.userId)
   },
   getUserInfo: function() {
     let that = this
@@ -28,6 +25,9 @@ Page({
     api.getUserCenter(query).then((res) => {
       console.log(res.data)
       let data = res.data
+      wx.setStorageSync('account', data.data.account)
+      wx.setStorageSync('headImage', data.data.headImage)
+      wx.setStorageSync('phone', data.data.phone)
       if (data.code === 'S0A00000') {
         that.setData({
           msgList: data.data
