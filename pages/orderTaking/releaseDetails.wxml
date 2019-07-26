@@ -58,8 +58,11 @@
     </view>
     <view class="word-time">
       <view class="word-time-title">时长</view>
-      <view class="word-time-text">{{list.startTime}} - {{list.endTime}}</view>
       <view class="word-time-text">{{list.timeLength}}小时</view>
+    </view>
+    <view class="word-time">
+      <view class="word-time-title">开始时间-结束时间</view>
+      <view class="word-time-text">{{list.startTime}} - {{list.endTime}}</view>
     </view>
     <view class="map-view">
       <map

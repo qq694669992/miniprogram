@@ -28,7 +28,7 @@
   <view class="search-content">
     <view class="floor-view">
       <view class="order-header">
-        <text class="order-num">订单：1234567890123</text>
+        <text class="order-num">编号：1234567890123</text>
         <text class="null"></text>
         <text class="order-status">待付款</text>
       </view>
@@ -42,7 +42,7 @@
         <view class="null"></view>
         <view class="order-btn">
           <view class="null"></view>
-          <view class="order_btn">去支付</view>
+          <view class="order_btn">确认支付</view>
         </view>
       </view>
     </view>
