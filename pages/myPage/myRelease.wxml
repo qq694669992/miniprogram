@@ -47,4 +47,11 @@
       </view>
     </view>
   </view>
+
+  <view class="no-list" wx:if="{{orderList.length === 0}}">
+    <image src='../../img/mypage/no_order.png'></image>
+    <view>
+      <text class="no-list-text">暂无数据~</text>
+    </view>
+  </view>
 </view>
