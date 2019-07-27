@@ -121,6 +121,18 @@ Page({
     }
     api.addOrder(query).then(res => {
       console.log(res)
+      if (res.data.code === 'S0A00000') {
+        wx.showToast({
+          title: '接单成功',
+          icon: 'none',
+          duration: 2000,
+        })
+        setTimeout(function () {
+          wx.navigateTo({
+            url: '../myPage/myOrder',
+          })
+        }, 2000)
+      }
     })
   },
 })

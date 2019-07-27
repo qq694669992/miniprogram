@@ -79,7 +79,7 @@ const getOrderList = (form) => api.get(path.getOrderList, form)       //  我的
 
 const getWorks = (form) => api.get(path.getWorks, form)               //  我的发布列表
 
-const addOrder = (form) => api.get(path.addOrder, form)               //  立即接单
+const addOrder = (form) => api.post(path.addOrder, form)               //  立即接单
 
 export default {
   getIndexList,

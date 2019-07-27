@@ -25,7 +25,7 @@
       <view class="active-line" wx:if="{{activeIndex === 'p201'}}"></view>
     </view>
   </view>
-  <view class="search-content">
+  <view class="search-content" wx:if="{{orderList.length !== 0}}">
     <view class="floor-view" wx:for="{{orderList}}" wx:key="{{index}}" bindtap="toOrderDetails">
       <view class="order-header">
         <text class="order-num">订单号：{{item.orderNo}}</text>
@@ -45,6 +45,12 @@
           <view class="order_btn" wx:if="{{item.workDetailsVo.status !== 0}}">{{item.workDetailsVo.status === 1 ? '已取消' : (item.workDetailsVo.status === 2 ? '交易中' : '已完成')}}</view>
         </view>
       </view>
+    </view>
+  </view>
+  <view class="no-list" wx:if="{{orderList.length === 0}}">
+    <image src='../../img/mypage/no_order.png'></image>
+    <view>
+      <text class="no-list-text">亲，你还没有订单哦~</text>
     </view>
   </view>
 </view>

@@ -74,15 +74,15 @@
       ></map>
     </view>
     <view class="release-agreement">
-      <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" />
+      <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" checked/>
       <text class="agreement-content">我已阅读并同意《零工协议》</text>
     </view>
   </view>
 
-  <view class="order-btn col-red" wx:if="{{list.status === 0}}">
+  <view class="order-btn col-red" wx:if="{{list.status === 0}}" bindtap="addOrder">
     <text>立即接单</text>
   </view>
-  <view class="order-btn col-gray" wx:else bindtap="addOrder">
+  <view class="order-btn col-gray" wx:else>
     <text>立即接单</text>
   </view>
 </view>

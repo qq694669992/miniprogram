@@ -26,7 +26,7 @@
     </view>
   </view>
   <view class="search-content">
-    <view class="floor-view" wx:for="{{orderList}}" wx:key="{{index}}">
+    <view class="floor-view" wx:for="{{orderList}}" wx:key="{{index}}" bindtap="toReleaseDetails" data-recruitid="{{item.recruitId}}">
       <view class="order-header">
         <text class="order-num">编号：{{item.recruitId}}</text>
         <!-- <text class="null"></text>

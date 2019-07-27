@@ -115,4 +115,9 @@ Page({
       this.getList()
     }
   },
+  toReleaseDetails: function (e) {
+    wx.navigateTo({
+      url: '../orderTaking/releaseDetails?recruitId=' + e.currentTarget.dataset.recruitid,
+    })
+  }
 })

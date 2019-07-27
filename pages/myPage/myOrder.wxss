@@ -99,3 +99,11 @@ page {
   font-size: 28rpx;
   color: #F7622E;
 }
+.no-list {
+  margin-top: 200rpx;
+  text-align: center;
+}
+.no-list-text {
+  color: #999999;
+  font-size: 28rpx;
+}
