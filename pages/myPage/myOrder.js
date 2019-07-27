@@ -115,4 +115,9 @@ Page({
       this.getList()
     }
   },
+  toOrderDetails() {
+    wx.navigateTo({
+      url: '../orderTaking/orderDetails',
+    })
+  }
 })

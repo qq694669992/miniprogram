@@ -22,7 +22,8 @@
     "pages/myPage/evaluate",
     "pages/myPage/userAgreement",
     "pages/orderTaking/releaseDetails",
-    "pages/map/index"
+    "pages/map/index",
+    "pages/orderTaking/orderDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",
