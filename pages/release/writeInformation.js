@@ -21,7 +21,7 @@ Page({
     // endDate: '',
     region: [],
     addressDetails: '',
-    isAgree: false,
+    isAgree: true,
     startDate: "请选择日期",
     multiArray: [[],[],[]],
     multiIndex: [0, 0, 0],

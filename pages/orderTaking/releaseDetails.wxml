@@ -79,10 +79,25 @@
     </view>
   </view>
 
-  <view class="order-btn col-red" wx:if="{{list.status === 0}}" bindtap="addOrder">
+  <!-- <view class="order-btn col-red" wx:if="{{list.status === 0 && list.isDisplay !== 'Y'}}" bindtap="addOrder">
     <text>立即接单</text>
   </view>
-  <view class="order-btn col-gray" wx:else>
+  <view class="order-btn col-gray" wx:if="{{list.status !== 0}}">
+    <text>{{list.status === 1 ? '未完成' : (list.status === 2 ? '未完成' : '')}}</text>
+  </view> -->
+  <view class="order-btn col-gray" wx:if="{{list.status === 0 && list.isDisplay === 'Y' && last === 'orderTaking'}}">
     <text>立即接单</text>
+  </view>
+  <view class="order-btn col-red" wx:if="{{list.status === 0 && list.isDisplay !== 'Y' && last === 'orderTaking'}}"  bindtap="addOrder">
+    <text>立即接单</text>
+  </view>
+  <view class="order-btn col-gray" wx:if="{{list.status === 1 && list.isDisplay === 'Y' && last === 'myPage'}}">
+    <text>未完成</text>
+  </view>
+  <view class="order-btn col-red" wx:if="{{list.status === 2 && list.isDisplay === 'Y' && last === 'myPage'}}">
+    <text>确认支付</text>
+  </view>
+  <view class="order-btn col-gray" wx:if="{{list.status === 3 && list.isDisplay === 'Y' && last === 'myPage'}}">
+    <text>已完成</text>
   </view>
 </view>

@@ -13,7 +13,8 @@ Page({
     longitude: '',
     latitude: '',
     isAgree: true,
-    markers: []
+    markers: [],
+    last: '',
   },
 
   /**
@@ -21,12 +22,17 @@ Page({
    */
   onLoad: function (options) {
     let that = this
+    var pages = getCurrentPages()
+    var lastpages = pages[pages.length - 2].route
+    var last = lastpages.split('/')[1]
+    console.log(last)
     wx.getStorage({
       key: 'userId',
       success(res) {
         that.setData({
           recruitId: options.recruitId,
-          userid: res.data
+          userid: res.data,
+          last: last
         })
         that.getDetails()
       },
@@ -83,6 +89,7 @@ Page({
   },
   getDetails () {
     let query = {
+      userid: this.data.userid,
       recruitId: this.data.recruitId
     }
     api.getWorkDetails(query).then((res) => {
