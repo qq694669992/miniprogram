@@ -1,4 +1,7 @@
 <view class="release-details">
+  <view class='order-status'>
+    
+  </view>
   <view class="release-msg">
     <view class="release-msg-address">
       <text>{{list.title}}</text>
@@ -64,7 +67,7 @@
       <view class="word-time-title">开始时间-结束时间</view>
       <view class="word-time-text">{{list.startTime}} - {{list.endTime}}</view>
     </view>
-    <view class="map-view" wx:if="{{longitude !== '' && latitude !== ''}}">
+    <view class="map-view">
       <map
         id="detailsMap"
         longitude="{{longitude}}"
@@ -79,10 +82,7 @@
     </view>
   </view>
 
-  <view class="order-btn col-red" wx:if="{{list.status === 0}}">
-    <text>立即接单</text>
-  </view>
-  <view class="order-btn col-gray" wx:else bindtap="addOrder">
+  <view class="order-btn">
     <text>立即接单</text>
   </view>
 </view>
