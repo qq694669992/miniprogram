@@ -1,17 +1,31 @@
+import api from '../../api/apiList.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    activeIndex: '0',
+    userId: '',
+    activeIndex: '',
+    pageNo: 1,
+    orderList: [],
+    totalCount: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    let that = this
+    wx.getStorage({
+      key: 'userId',
+      success: function (res) {
+        that.setData({
+          userId: res.data
+        })
+        that.getList()
+      },
+    })
   },
 
   /**
@@ -64,22 +78,41 @@ Page({
   },
   chosenView: function (event) {
     let id = event.currentTarget.id
-    if (id === 'all') {
-      this.setData({
-        activeIndex: '0'
-      })
-    } else if (id === 'jxz') {
-      this.setData({
-        activeIndex: '1'
-      })
-    } else if (id === 'wwc') {
-      this.setData({
-        activeIndex: '2'
-      })
-    } else if (id === 'ywc') {
-      this.setData({
-        activeIndex: '3'
-      })
+    this.setData({
+      activeIndex: id,
+      orderList: [],
+      pageNo: 1,
+    })
+    console.log(this.data.activeIndex)
+    this.getList()
+  },
+  getList() {
+    let query = {
+      userid: this.data.userId,
+      workstatus: this.data.activeIndex,
+      pageNo: this.data.pageNo,
+      pageSize: 10,
     }
-  }
+    api.getWorks(query).then(res => {
+      let orderList = this.data.orderList
+      if (this.data.pageNo === '1') {
+        orderList = []
+      }
+      if (res.data.data.works && res.data.data.works.length) {
+        orderList = [...orderList, ...res.data.data.works]
+      }
+      this.setData({
+        orderList: orderList,
+        totalCount: res.data.data.totalCount
+      })
+    })
+  },
+  onReachBottom() {
+    if (parseInt(this.data.totalCount / 10) > this.data.pageNo) {
+      this.setData({
+        pageNo: this.data.pageNo + 1
+      })
+      this.getList()
+    }
+  },
 })

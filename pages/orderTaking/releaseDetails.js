@@ -5,13 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userid: '',
     recruitId: '',
     list: [],
     labelArray: [],
     images: [],
     longitude: '',
     latitude: '',
-    isAgree: false,
+    isAgree: true,
     markers: []
   },
 
@@ -19,10 +20,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      recruitId: options.recruitId
+    let that = this
+    wx.getStorage({
+      key: 'userId',
+      success(res) {
+        this.setData({
+          recruitId: options.recruitId,
+          userid: res.userId
+        })
+        this.getDetails()
+      },
     })
-    this.getDetails()
   },
 
   /**
@@ -81,8 +89,8 @@ Page({
       console.log(res.data)
       let data = res.data
       if (data.code === 'S0A00000') {
-        let longitude = data.workDetails.coordinate.split(',')[1]
-        let latitude = data.workDetails.coordinate.split(',')[0]
+        let longitude = data.workDetails.coordinate.split(',')[0]
+        let latitude = data.workDetails.coordinate.split(',')[1]
         let markers = [{
           longitude: longitude,
           latitude: latitude,
@@ -95,7 +103,6 @@ Page({
           latitude: latitude,
           markers: markers,
         })
-        console.log(this.data)
       }
     })
   },
@@ -104,5 +111,16 @@ Page({
       isAgree: e.detail.value
     })
     console.log(this.data.isAgree)
+  },
+  addOrder() {
+    let query = {
+      pId: this.data.list.recruitId,
+      puser: this.data.list.userId,
+      ruser: this.data.userid,
+      totalAmount: this.data.list.totalPrice
+    }
+    api.addOrder(query).then(res => {
+      console.log(res)
+    })
   },
 })

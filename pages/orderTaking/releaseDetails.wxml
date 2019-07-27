@@ -61,7 +61,7 @@
       <view class="word-time-text">{{list.startTime}} - {{list.endTime}}</view>
       <view class="word-time-text">{{list.timeLength}}小时</view>
     </view>
-    <view class="map-view">
+    <view class="map-view" wx:if="{{longitude !== '' && latitude !== ''}}">
       <map
         id="detailsMap"
         longitude="{{longitude}}"
@@ -76,7 +76,10 @@
     </view>
   </view>
 
-  <view class="order-btn">
+  <view class="order-btn col-red" wx:if="{{list.status === 0}}">
+    <text>立即接单</text>
+  </view>
+  <view class="order-btn col-gray" wx:else bindtap="addOrder">
     <text>立即接单</text>
   </view>
 </view>

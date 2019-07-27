@@ -1,51 +1,50 @@
 <view class="search-result-page">
   <view class="search-chosen">
-    <view class="chosen-view" bindtap="chosenView" id="all">
-      <view class="chosen-text {{activeIndex === '0' ? 'active-text' : ''}}">
+    <view class="chosen-view" bindtap="chosenView" id="">
+      <view class="chosen-text {{activeIndex === '' ? 'active-text' : ''}}">
         <text>全部</text>
       </view>
-      <view class="active-line" wx:if="{{activeIndex === '0'}}"></view>
+      <view class="active-line" wx:if="{{activeIndex === ''}}"></view>
     </view>
-    <view class="chosen-view" bindtap="chosenView" id="jxz">
-      <view class="chosen-text {{activeIndex === '1' ? 'active-text' : ''}}">
+    <view class="chosen-view" bindtap="chosenView" id="p202">
+      <view class="chosen-text {{activeIndex === 'p202' ? 'active-text' : ''}}">
         <text>进行中</text>
       </view>
-      <view class="active-line" wx:if="{{activeIndex === '1'}}"></view>
+      <view class="active-line" wx:if="{{activeIndex === 'p202'}}"></view>
     </view>
-    <view class="chosen-view" bindtap="chosenView" id="wwc">
-      <view class="chosen-text {{activeIndex === '2' ? 'active-text' : ''}}">
+    <view class="chosen-view" bindtap="chosenView" id="p203">
+      <view class="chosen-text {{activeIndex === 'p203' ? 'active-text' : ''}}">
         <text>未完成</text>
       </view>
-      <view class="active-line" wx:if="{{activeIndex === '2'}}"></view>
+      <view class="active-line" wx:if="{{activeIndex === 'p203'}}"></view>
     </view>
-    <view class="chosen-view" bindtap="chosenView" id="ywc">
-      <view class="chosen-text {{activeIndex === '3' ? 'active-text' : ''}}">
+    <view class="chosen-view" bindtap="chosenView" id="p201">
+      <view class="chosen-text {{activeIndex === 'p201' ? 'active-text' : ''}}">
         <text>已完成</text>
       </view>
-      <view class="active-line" wx:if="{{activeIndex === '3'}}"></view>
+      <view class="active-line" wx:if="{{activeIndex === 'p201'}}"></view>
     </view>
   </view>
   <view class="search-content">
-    <view class="floor-view">
+    <view class="floor-view" wx:for="{{orderList}}" wx:key="{{index}}">
       <view class="order-header">
-        <text class="order-num">订单：1234567890123</text>
+        <text class="order-num">订单号：{{item.orderNo}}</text>
         <text class="null"></text>
-        <text class="order-status">待付款</text>
+        <text class="order-status">{{item.orderStatus === 'p201' ? '已完成' : (item.orderStatus === 'p202' ? '待支付' : '已取消')}}</text>
       </view>
       <view class="order-msg">
-        <view class="order-name">北京北京北京北京北京北京北京北京北京北北京北京北京北京北京北</view>
+        <view class="order-name">{{item.workDetailsVo.jobDescription}}</view>
         <view class="order-details">
-          <view class="order-time">2019-04-08 13:30 共2小时 </view>
+          <view class="order-time">{{item.workDetailsVo.startTime}} 共{{item.workDetailsVo.timeLength}}小时 </view>
           <view class="null"></view>
-          <view class="order-price">合计：¥399.00</view>
+          <view class="order-price">合计：¥{{item.workDetailsVo.totalPrice}}</view>
         </view>
         <view class="null"></view>
         <view class="order-btn">
           <view class="null"></view>
-          <view class="order_btn">已完成</view>
+          <view class="order_btn" wx:if="{{item.workDetailsVo.status !== 0}}">{{item.workDetailsVo.status === 1 ? '已取消' : (item.workDetailsVo.status === 2 ? '交易中' : '已完成')}}</view>
         </view>
       </view>
     </view>
-
   </view>
 </view>

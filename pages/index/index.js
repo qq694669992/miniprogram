@@ -24,5 +24,10 @@ Page({
     wx.navigateTo({
       url: 'more',
     })
+  },
+  toDetails(e) {
+    wx.navigateTo({
+      url: '../orderTaking/releaseDetails?recruitId=' + e.currentTarget.dataset.recruitid,
+    })
   }
 })

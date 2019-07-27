@@ -27,6 +27,10 @@ const path = {
   getUserBalance: '/server/usercenter/getUserBalance',  //  用户余额
   userRecharge: '/server/usercenter/userRecharge',                //  充值
   cashWithdrawal: '/server/usercenter/cashWithdrawal',            //  提现
+  geocoder: '/server/txmap/geocoder',                             //  获取经纬度
+  getOrderList: '/server/order/getOrderList',                     //  我的订单列表
+  getWorks: '/server/work/getWorks',                              //  我的发布列表
+  addOrder: '/server/order/addOrder',                             //  立即接单
 };
 
 const getIndexList = (form) => api.get(path.getIndexList, form)       //  首页接口
@@ -69,6 +73,14 @@ const userRecharge = (form) => api.post(path.userRecharge, form)      //  充值
 
 const cashWithdrawal = (form) => api.post(path.cashWithdrawal, form)  //  提现
 
+const geocoder = (form) => api.get(path.geocoder, form)               //  获取经纬度
+
+const getOrderList = (form) => api.get(path.getOrderList, form)       //  我的订单列表
+
+const getWorks = (form) => api.get(path.getWorks, form)               //  我的发布列表
+
+const addOrder = (form) => api.get(path.addOrder, form)               //  立即接单
+
 export default {
   getIndexList,
   workcomplete,
@@ -90,4 +102,8 @@ export default {
   getUserBalance,
   userRecharge,
   cashWithdrawal,
+  geocoder,
+  getOrderList,
+  getWorks,
+  addOrder,
 };

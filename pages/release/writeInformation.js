@@ -37,6 +37,7 @@ Page({
     endDay: '',
     endHours: '',
     endMinute: '',
+    coordinate: '',
   },
 
   /**
@@ -638,8 +639,22 @@ Page({
 
   blurAddress(e) {
     console.log(e.detail.value)
-    qqmapsdk.getQQGeocoder(e.detail.value, (res) => {
+    let that = this
+    let query = {
+      region: that.data.region[1],
+      address: e.detail.value
+    }
+    // qqmapsdk.getQQGeocoder(e.detail.value, (res) => {
+    //   console.log(res)
+    // })
+    api.geocoder(query).then( res => {
       console.log(res)
+      let data = res.data
+      if (data.code === 'S0A00000') {
+        this.setData({
+          coordinate: data.latxy
+        })
+      }
     })
   },
 
@@ -702,7 +717,7 @@ Page({
         jobNumber: '1',                             //  工作人数
         totalPrice: e.detail.value.price,           // 总金额
         userId: that.data.userId,                          //  用户id
-        coordinate: '1122,343434',                  //  坐标
+        coordinate: that.data.coordinate,                  //  坐标
         address: e.detail.value.address.trim(),     //  详细地址
         tags: tags.substr(0, tags.length - 1),      //  标签
         requirement: '11111',                       //  零工要求

@@ -26,7 +26,7 @@
       <text class="null"></text>
       <text class="banner-btn" bindtap="toMore">更多></text>
     </view>
-    <view class="floor-view" wx:for="{{list}}" wx:key="index">
+    <view class="floor-view" wx:for="{{list}}" wx:key="index" bindtap='toDetails' data-recruitid="{{item.recruitId}}">
       <view class="bg-view">
         <image src="../../img/bg.png"></image>
       </view>
