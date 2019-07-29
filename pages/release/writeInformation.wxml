@@ -100,7 +100,7 @@
         </view>
       </view>
       <view class="release-address-details">
-        <textarea class="input-address-details" placeholder="请详细填写详细地址" name="address" bindblur='blurAddress'/>
+        <textarea class="input-address-details" placeholder="请详细填写详细地址" name="address" bindblur='blurAddress' wx:if="{{!modalCourse}}" value='{{query.address || ""}}'/>
       </view>
     </view>
     <view class="release-agreement">
@@ -111,5 +111,47 @@
     <view>
       <button form-type="submit" class="release-btn">发布</button>
     </view>
+
+    <!-- <view bindtap="courseShow">
+      <text>点击显示弹框</text>
+    </view> -->
+
+    <view class="cu-modal modal_course {{modalCourse ?'show':''}}" bindtap='hideModal' catchtouchmove="myCatchTouch">
+      <view class="cu-dialog" catchtap>
+        <view class='cu_dialog_mian'>
+          <view class='course_title'>请您按预估价支付</view>
+          <view class='course_list'>
+            <block>
+              <view class='course_list_mian'>
+                <view class='course_list_title'>
+                  <text class="course_list_title_text">因订单行程较远，请您先支付预付款，行程结束后按实际产生费用多退少补，预付款未使用部分，将立即发起原路退款，如产生附加费，请另行支付</text>
+                </view>
+                <view class="course_list_content">
+                  <view class="course_list_content_pay">
+                    <text>合计费用</text>
+                    <text style="flex: 1"></text>
+                    <text>￥{{query.totalPrice}}</text>
+                  </view>
+                  <view class="course_list_content_paymethod">
+                    <image src="../../img/icon/wx_pay.jpg" class="pay_icon"></image>
+                    <text>微信支付</text>
+                    <text style="flex: 1"></text>
+                    <image src="../../img/release/fb_on.png" class="chosen_icon"></image>
+                  </view>
+                </view>
+                <view class="course_list_agreement">
+                  <image src="../../img/release/fb_on.png" class="agreenment_icon"></image>
+                  <text>同意《预付款协议》</text>
+                </view>
+                <view class="course_list_btn">
+                  <button bindtap="queryPay" class="query-pay">确认支付</button>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
   </form>
 </view>
+

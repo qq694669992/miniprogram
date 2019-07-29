@@ -204,7 +204,7 @@ page {
   z-index: 1110;
   opacity: 0;
   outline: 0;
-  text-align: center;
+  /* text-align: center; */
   -ms-transform: scale(1.185);
   transform: scale(1.185);
   backface-visibility: hidden;
@@ -232,16 +232,19 @@ page {
 }
 
 .cu-dialog {
-  position: relative;
+  position: fixed;
   display: inline-block;
-  vertical-align: middle;
-  margin-left: auto;
-  margin-right: auto;
-  width: 680rpx;
-  max-width: 100%;
+  /* vertical-align: middle; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 750rpx;
+  max-width: 100%; */
   background: #f8f8f8;
-  border-radius: 10rpx;
+  /* border-radius: 10rpx; */
   overflow: hidden;
+  bottom: 0;
+  left: 0;
+  padding: 50rpx 30rpx;
 }
 
 .cu-modal.bottom-modal::before {
@@ -284,4 +287,68 @@ page {
 
 .cu-modal.drawer-modal.show .cu-dialog {
   transform: translateX(0%);
+}
+
+.course_title {
+  font-weight: bolder;
+}
+
+.course_list_title_text {
+  font-size: 28rpx;
+}
+
+.course_list_content {
+  padding: 0 90rpx;
+}
+
+.course_list_content_pay {
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  padding: 50rpx 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.course_list_content_paymethod {
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+.pay_icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.chosen_icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.course_list_agreement {
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.agreenment_icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.query-pay {
+  /* width: 630rpx; */
+  height: 88rpx;
+  /* border-radius: 44rpx; */
+  background: #FF6700;
+  margin: 50rpx auto 0 auto;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  line-height: 88rpx;
+  text-align: center;
 }

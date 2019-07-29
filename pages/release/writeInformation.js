@@ -38,6 +38,8 @@ Page({
     endHours: '',
     endMinute: '',
     coordinate: '',
+    modalCourse: false,
+    query: '',
   },
 
   /**
@@ -638,12 +640,17 @@ Page({
   },
 
   blurAddress(e) {
-    console.log(e.detail.value)
     let that = this
+    if (that.data.region.length === 0) {
+      that.setData({
+        region: ['广东省', '深圳市', '罗湖区']
+      })
+    }
     let query = {
       region: that.data.region[1],
       address: e.detail.value
     }
+    console.log(query)
     // qqmapsdk.getQQGeocoder(e.detail.value, (res) => {
     //   console.log(res)
     // })
@@ -731,22 +738,41 @@ Page({
         city: that.data.region[0],                  //  城市
         area: that.data.region[1]                   //  区域
       }
-      api.release(query).then((res) => {
-        console.log(res)
-        let data = res.data
-        if (data.code === 'S0A00000') {
-          wx.showToast({
-            title: '发布成功',
-            icon: 'none',
-            duration: 1000,
-          })
-          setTimeout(function () {
-            wx.switchTab({
-              url: '/pages/orderTaking/index',
-            })
-          }, 1000)
-        }
+      this.setData({
+        modalCourse: true,
+        query: query,
       })
     }
+  },
+  // 进程弹出框显示
+  // courseShow() {
+  //   this.setData({
+  //     modalCourse: true
+  //   })
+  // },
+  // 关闭
+  hideModal() {
+    this.setData({
+      modalCourse: false
+    })
+  },
+  queryPay() {
+    console.log(this.data.query)
+    api.release(this.data.query).then((res) => {
+      console.log(res)
+      let data = res.data
+      if (data.code === 'S0A00000') {
+        wx.showToast({
+          title: '发布成功',
+          icon: 'none',
+          duration: 1000,
+        })
+        setTimeout(function () {
+          wx.switchTab({
+            url: '/pages/orderTaking/index',
+          })
+        }, 1000)
+      }
+    })
   }
 })
