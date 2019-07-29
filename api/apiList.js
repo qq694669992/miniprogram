@@ -11,7 +11,7 @@ const path = {
   workcomplete: '/server/pages/workcomplete',          //更多列表
   getReceipts: '/server/pages/getReceipts',            //接单列表
   searchList: '/server/pages/searchList',              // 接单搜索
-  getWorkDetails: '/server/work/getWorkDetails',    // 订单详情
+  getWorkDetails: '/server/work/getWorkDetails',    // 发布详情
   getTags: '/server/tags/getTags',      //  获取标签
   release: '/server/work/release',                     //发布
   getUserCenter: '/server/usercenter/getUserCenter',   // 获取我的
@@ -31,6 +31,7 @@ const path = {
   getOrderList: '/server/order/getOrderList',                     //  我的订单列表
   getWorks: '/server/work/getWorks',                              //  我的发布列表
   addOrder: '/server/order/addOrder',                             //  立即接单
+  getOrderDetails: '/server/order/getOrderDetails',               //  订单详情
 };
 
 const getIndexList = (form) => api.get(path.getIndexList, form)       //  首页接口
@@ -41,7 +42,7 @@ const getReceipts = (form) => api.get(path.getReceipts, form)         //接单�
 
 const searchList = (form) => api.get(path.searchList, form)           //接单搜索
 
-const getWorkDetails = (form) => api.get(path.getWorkDetails, form)   //订单详情
+const getWorkDetails = (form) => api.get(path.getWorkDetails, form)   //发布详情
 
 const getTags = (form) => api.get(path.getTags, form)                 //  获取标签
 
@@ -81,6 +82,8 @@ const getWorks = (form) => api.get(path.getWorks, form)               //  我的
 
 const addOrder = (form) => api.post(path.addOrder, form)               //  立即接单
 
+const getOrderDetails = (form) => api.get(path.getOrderDetails, form)        //  订单详情
+
 export default {
   getIndexList,
   workcomplete,
@@ -106,4 +109,5 @@ export default {
   getOrderList,
   getWorks,
   addOrder,
+  getOrderDetails,
 };

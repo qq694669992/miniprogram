@@ -1,88 +1,61 @@
-<view class="release-details">
-  <view class='order-status'>
-    
+<view class="order-details">
+  <view class="order-details-status">
+    <text>{{list.orderStatus === 'p202' ? '进行中' : (list.orderStatus === 'p201' ? '已完成' : '未完成')}}</text>
   </view>
-  <view class="release-msg">
-    <view class="release-msg-address">
+  <view class="order-details-evaluate">
+    <button class="order-details-evaluate-btn">评价</button>
+  </view>
+  <view class="order-details-content">
+    <!-- <view class="order-details-content-title">
+      <text>订单信息</text>
+    </view> -->
+    <view class="order-details-content-list">
       <text>{{list.title}}</text>
     </view>
-    <view class="release-msg-info">
-      <view class="release-msg-info-price">¥{{list.totalPrice}}</view>
-      <view class="null"></view>
-      <view>
-        <image src="../../img/dizhi.png" class="release-msg-info-icon"/>
-        <text class="release-msg-info-area">{{list.city}}  |  {{list.area}}</text>
-      </view>
+    <view class="order-details-content-list">
+      <text>{{list.jobDescription}}</text>
     </view>
-    <view class="release-people-msg">
-      <view class="release-people-msg-icon">
-        <image src="{{list.headImages}}" />
-      </view>
-      <view class="release-people-msg-info">
-        <view class="release-people-msg-info-name">
-          <text>{{list.account}}</text>
-        </view>
-        <view class="release-people-msg-info-authentication">
-          <image src="../../img/mypage/renzheng-cheng.png" class="authentication-icon"/>
-          <text class="authentication-text" wx:if="{{list.iscertification === '1'}}">已认证</text>
-          <text class="authentication-text" wx:if="{{list.iscertificationc=== '0'}}">未认证</text>
-        </view>
-      </view>
-      <view class="null"></view>
-      <view class="release-people-msg-info-icon">
-        <image src="../../img/mypage/ic_arrow.png" class="icon"/>
-      </view>
+    
+    <view class="order-details-content-list">
+      <text>总金额</text>
+      <text style="flex: 1"></text>
+      <text>{{list.totalAmount}}</text>
     </view>
   </view>
 
-  <view class="details-msg">
-    <view class="odd-job-details">
-      <view class="odd-job-details-title">零工详情</view>
-      <view class="odd-job-details-tips">零工职责：</view>
-      <view class="odd-job-details-info">{{list.jobDescription}}</view>
+  <view class="order-details-content">
+    <view class="order-details-content-list">
+      <text>开始时间</text>
+      <text style="flex: 1"></text>
+      <text>{{list.startTime}}</text>
     </view>
-    <view class="label">
-      <view class="label-title">标签</view>
-      <view>
-        <view class="label-content">
-          <view class="label-list" wx:for="{{labelArray}}" wx:key="index" >
-            <text>{{item}}</text>
-          </view>
-        </view>
-      </view>
+    <view class="order-details-content-list">
+      <text>结束时间</text>
+      <text style="flex: 1"></text>
+      <text>{{list.endTime}}</text>
     </view>
-    <view class="word-environment">
-      <view class="word-environment-title">工作环境</view>
-      <view class="word-environment-info">
-        <view class="word-environment-info-img" wx:for="{{images}}" wx:key="index">
-          <image src="{{itme}}"/>
-        </view>
-      </view>
-    </view>
-    <view class="word-time">
-      <view class="word-time-title">时长</view>
-      <view class="word-time-text">{{list.timeLength}}小时</view>
-    </view>
-    <view class="word-time">
-      <view class="word-time-title">开始时间-结束时间</view>
-      <view class="word-time-text">{{list.startTime}} - {{list.endTime}}</view>
-    </view>
-    <view class="map-view">
-      <map
-        id="detailsMap"
-        longitude="{{longitude}}"
-        latitude="{{latitude}}"
-        scale="18"
-        markers="{{markers}}"
-      ></map>
-    </view>
-    <view class="release-agreement">
-      <switch bindchange="switchChange" type="checkbox" style="zoom: 0.7" />
-      <text class="agreement-content">我已阅读并同意《零工协议》</text>
+    <view class="order-details-content-list">
+      <text>时长</text>
+      <text style="flex: 1"></text>
+      <text>{{list.timeLength}} 小时</text>
     </view>
   </view>
 
-  <view class="order-btn">
-    <text>立即接单</text>
+  <view class="order-details-content">
+    <view class="order-details-content-list">
+      <text>订单号</text>
+      <text style="flex: 1"></text>
+      <text>{{list.orderNo}}</text>
+    </view>
+    <view class="order-details-content-list">
+      <text>订单创建时间</text>
+      <text style="flex: 1"></text>
+      <text>{{list.createTime}}</text>
+    </view>
+    <view class="order-details-content-list">
+      <text>支付方式</text>
+      <text style="flex: 1"></text>
+      <text>微信支付</text>
+    </view>
   </view>
 </view>

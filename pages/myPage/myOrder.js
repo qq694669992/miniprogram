@@ -115,9 +115,9 @@ Page({
       this.getList()
     }
   },
-  toOrderDetails() {
+  toOrderDetails(e) {
     wx.navigateTo({
-      url: '../orderTaking/orderDetails',
+      url: '../orderTaking/orderDetails?orderNo=' + e.currentTarget.dataset.orderno,
     })
   }
 })

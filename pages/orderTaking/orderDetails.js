@@ -5,14 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    recruitId: '',
+    orderNo: '',
     list: [],
-    labelArray: [],
-    images: [],
-    longitude: '',
-    latitude: '',
-    isAgree: false,
-    markers: []
   },
 
   /**
@@ -20,8 +14,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      recruitId: options.recruitId
+      orderNo: options.orderNo
     })
+    console.log(this.data.orderNo)
     this.getDetails()
   },
 
@@ -75,27 +70,15 @@ Page({
   },
   getDetails() {
     let query = {
-      recruitId: this.data.recruitId
+      orderNo: this.data.orderNo
     }
-    api.getWorkDetails(query).then((res) => {
+    api.getOrderDetails(query).then((res) => {
       console.log(res.data)
       let data = res.data
       if (data.code === 'S0A00000') {
-        let longitude = data.workDetails.coordinate.split(',')[1]
-        let latitude = data.workDetails.coordinate.split(',')[0]
-        let markers = [{
-          longitude: longitude,
-          latitude: latitude,
-        }]
         this.setData({
-          list: data.workDetails,
-          labelArray: data.workDetails.tags.split(','),
-          images: data.workDetails.images && data.workDetails.images !== 'null' ? data.workDetails.images.split(',') : '',
-          longitude: longitude,
-          latitude: latitude,
-          markers: markers,
+          list: data.data,
         })
-        console.log(this.data)
       }
     })
   },
