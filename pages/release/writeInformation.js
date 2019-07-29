@@ -666,7 +666,7 @@ Page({
   },
 
   toAgreement(e) {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/release/agreement',
     })
   },
@@ -674,7 +674,6 @@ Page({
   release:function (e) {
     let that = this
     let tags = ''
-    console.log(that.data.images.join(','))
     for (let i in that.data.labelArray) {
       if (that.data.labelArray[i].isChosen) {
         tags += that.data.labelArray[i].tagName + ','
@@ -774,5 +773,11 @@ Page({
         }, 1000)
       }
     })
-  }
+  },
+  myCatchTouch: function () {
+    return;
+  },
+  mycatchtap() {
+    return;
+  },
 })

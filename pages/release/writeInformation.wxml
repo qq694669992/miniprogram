@@ -116,8 +116,8 @@
       <text>点击显示弹框</text>
     </view> -->
 
-    <view class="cu-modal modal_course {{modalCourse ?'show':''}}" bindtap='hideModal' catchtouchmove="myCatchTouch">
-      <view class="cu-dialog" catchtap>
+    <view class="cu-modal modal_course {{modalCourse ?'show':''}}" bindtap='hideModal' catchtouchmove="true">
+      <view class="cu-dialog">
         <view class='cu_dialog_mian'>
           <view class='course_title'>请您按预估价支付</view>
           <view class='course_list'>
