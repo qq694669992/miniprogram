@@ -1,17 +1,23 @@
+import api from '../../api/apiList.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    userId: '',
+    orderNo: '',
+    isGood: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      userId: wx.getStorageSync('userId'),
+      orderNo: options.orderNo,
+    })
   },
 
   /**
@@ -61,5 +67,35 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+
+  checkIcon() {
+    this.setData({
+      isGood: !this.data.isGood
+    })
+  },
+
+  sumbit(e) {
+    let query = {
+      orderNo: this.data.orderNo,
+      isPraise: this.data.isGood ? 'Y' : 'N',
+      remark: e.detail.value.remark,
+      userid: this.data.userId,
+    }
+    api.addComment(query).then(res => {
+      console.log(res)
+      if (res.data.code === 'S0A00000') {
+        wx.showToast({
+          title: '评价成功',
+          icon: 'none',
+          duration: 1000,
+        })
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      }
+    })
   }
 })

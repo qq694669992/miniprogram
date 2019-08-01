@@ -1,13 +1,20 @@
 <view class="evaluate">
-  <view class="evaluate-tips">
-    <text>“满意”</text>
-  </view>
-  <view class="evaluate-icon">
-    <image src="../../img/icon/icon_happy_on.png" />
-    <image src="../../img/icon/icon_unhappy_on.png" class="unhappy-icon"/>
-  </view>
-  <view class="evaluate-msg">
-    <textarea placeholder="请输入评价文字（可不填）" />
-  </view>
-  <view class="sumbit">提交</view>
+  <form bindsubmit="sumbit">
+    <view class="evaluate-tips">
+      <text wx:if="{{isGood}}">“满意”</text>
+      <text wx:if="{{!isGood}}">“不满意”</text>
+    </view>
+    <view class="evaluate-icon">
+      <image src="../../img/icon/goodunchosen.png" wx:if="{{!isGood}}" bindtap="checkIcon"/>
+      <image src="../../img/icon/goodchosen.png" wx:if="{{isGood}}"/>
+      <image src="../../img/icon/badunchosen.png" class="unhappy-icon" wx:if="{{isGood}}" bindtap="checkIcon"/>
+      <image src="../../img/icon/badchosen.png" class="unhappy-icon" wx:if="{{!isGood}}"/>
+    </view>
+    <view class="evaluate-msg">
+      <textarea placeholder="请输入评价文字（可不填）" name="remark"/>
+    </view>
+    <view>
+      <button form-type="submit" class="sumbit">提交</button>
+    </view>
+  </form>
 </view>

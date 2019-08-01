@@ -32,6 +32,7 @@ const path = {
   getWorks: '/server/work/getWorks',                              //  我的发布列表
   addOrder: '/server/order/addOrder',                             //  立即接单
   getOrderDetails: '/server/order/getOrderDetails',               //  订单详情
+  addComment: '/server/order/addComment',                         //  评价
 };
 
 const getIndexList = (form) => api.get(path.getIndexList, form)       //  首页接口
@@ -82,7 +83,9 @@ const getWorks = (form) => api.get(path.getWorks, form)               //  我的
 
 const addOrder = (form) => api.post(path.addOrder, form)               //  立即接单
 
-const getOrderDetails = (form) => api.get(path.getOrderDetails, form)        //  订单详情
+const getOrderDetails = (form) => api.get(path.getOrderDetails, form)  //  订单详情
+
+const addComment = (form) => api.post(path.addComment, form)            //  评价
 
 export default {
   getIndexList,
@@ -110,4 +113,5 @@ export default {
   getWorks,
   addOrder,
   getOrderDetails,
+  addComment,
 };

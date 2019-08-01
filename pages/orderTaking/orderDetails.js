@@ -82,10 +82,9 @@ Page({
       }
     })
   },
-  switchChange(e) {
-    this.setData({
-      isAgree: e.detail.value
+  toEvaluate() {
+    wx.navigateTo({
+      url: '../myPage/evaluate?orderNo=' + this.data.orderNo,
     })
-    console.log(this.data.isAgree)
-  },
+  }
 })

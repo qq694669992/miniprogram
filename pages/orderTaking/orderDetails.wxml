@@ -3,7 +3,7 @@
     <text>{{list.orderStatus === 'p202' ? '进行中' : (list.orderStatus === 'p201' ? '已完成' : '未完成')}}</text>
   </view>
   <view class="order-details-evaluate">
-    <button class="order-details-evaluate-btn">评价</button>
+    <button class="order-details-evaluate-btn" bindtap="toEvaluate">评价</button>
   </view>
   <view class="order-details-content">
     <!-- <view class="order-details-content-title">
