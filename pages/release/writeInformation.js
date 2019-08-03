@@ -53,7 +53,7 @@ Page({
       userId: wx.getStorageSync('userId'),
       account: wx.getStorageSync('account'),
       headImage: wx.getStorageSync('headImage'),
-      phone: wx.getStorageSync('phone')
+      phone: wx.getStorageSync('phone'),
     })
     this.getLabel()
   },
@@ -643,7 +643,7 @@ Page({
     let that = this
     if (that.data.region.length === 0) {
       that.setData({
-        region: ['广东省', '深圳市', '罗湖区']
+        region: wx.getStorageSync('location')
       })
     }
     let query = {
