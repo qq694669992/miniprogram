@@ -2,7 +2,7 @@
   <view class="order-details-status">
     <text>{{list.orderStatus === 'p202' ? '进行中' : (list.orderStatus === 'p201' ? '已完成' : '未完成')}}</text>
   </view>
-  <view class="order-details-evaluate">
+  <view class="order-details-evaluate" wx:if="{{list.isComment === 'Y'}}">
     <button class="order-details-evaluate-btn" bindtap="toEvaluate">评价</button>
   </view>
   <view class="order-details-content">
