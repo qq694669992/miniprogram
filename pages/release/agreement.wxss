@@ -1,8 +1,0 @@
-.user-agreement {
-  padding: 30rpx;
-}
-.user-agreement-content {
-  font-size: 36rpx;
-  text-indent: 72rpx;
-  line-height: 72rpx;
-}

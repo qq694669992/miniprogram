@@ -8,7 +8,6 @@
     "pages/orderTaking/searchResult",
     "pages/release/index",
     "pages/release/writeInformation",
-    "pages/release/agreement",
     "pages/login/index",
     "pages/login/phoneLogin",
     "pages/login/verificationCode",

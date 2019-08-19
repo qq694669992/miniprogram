@@ -667,7 +667,7 @@ Page({
 
   toAgreement(e) {
     wx.navigateTo({
-      url: '/pages/release/agreement',
+      url: '../../pages/myPage/userAgreement',
     })
   },
 
